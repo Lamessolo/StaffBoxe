@@ -41,7 +41,7 @@ public class Adherent implements Serializable {
 	
 	private String federation;
 	
-	/* on ajoute une entité Role avec une relation One to One */
+	
 	@ManyToMany
 	@JoinTable(
 	name="Roles_Adherents",
@@ -51,7 +51,7 @@ public class Adherent implements Serializable {
 	
 	private String email;
 	
-	/* on ajoute une entité Section avec une relation One to One */
+	
 	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name="section_id", referencedColumnName="id")
 	private Section section;
@@ -59,7 +59,7 @@ public class Adherent implements Serializable {
 	private String phone;
 	private String imageUrl;
 	
-	/* on ajoute une entité Sexe / Genre avec une relation One to One */
+	
 	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name="sexe_id", referencedColumnName="id")
 	private Sexe sexe;
