@@ -2,12 +2,19 @@ package com.asso.staff.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -29,11 +36,31 @@ public class Adherent implements Serializable {
 	private String AdherentId;
 	private String name;
 	private String prenom;
-	private String Sexe;
+	private String adresse;
+	
+	
+	private String federation;
+	
+	/* on ajoute une entité Role avec une relation One to One */
+	@ManyToMany
+	@JoinTable(
+	name="Roles_Adherents",
+	joinColumns =@JoinColumn(name="adherents_id")
+	,inverseJoinColumns =@JoinColumn(name="role_id"))
+	private Set<Role> roles;
+	
 	private String email;
-	private String section;
+	
+	/* on ajoute une entité Section avec une relation One to One */
+	@OneToOne (cascade = CascadeType.ALL)
+	@JoinColumn(name="section_id", referencedColumnName="id")
+	private Section section;
+	
 	private String phone;
 	private String imageUrl;
 	
-	
+	/* on ajoute une entité Sexe / Genre avec une relation One to One */
+	@OneToOne (cascade = CascadeType.ALL)
+	@JoinColumn(name="sexe_id", referencedColumnName="id")
+	private Sexe sexe;
 }
