@@ -10,12 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="tbl_sexe")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Sexe implements Serializable {
@@ -24,6 +26,8 @@ public class Sexe implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(unique=true)
+	@Column(name="name")
 	private String name;
+	
+	
 }

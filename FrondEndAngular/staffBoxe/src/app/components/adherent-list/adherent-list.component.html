@@ -1,0 +1,28 @@
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Prenom</th>
+            <th>Statut</th>
+            <th>Poid</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tempAdherent of adherents">
+             
+                <td class="align-middle">
+                    <img src="{{tempAdherent.imageUrl}}" height="50"/>
+                </td>
+             
+                <td>{{tempAdherent.name}} </td>
+                <td>{{tempAdherent.prenom}} </td>
+                <td>{{tempAdherent.statut}} </td>
+                <td>{{tempAdherent.poid}}</td>
+                <td>{{tempAdherent.email}}</td>
+        </tr>
+    </tbody>
+</table>
+

@@ -1,0 +1,22 @@
+<div>
+    <div class="row row-cols-1 row-cols-md-4 mb-4 text-center" >
+        <div class="col" *ngFor="let section of sections">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                <div class="card-header py-3 border-primary">
+                  <h4 class="my-0 fw-normal">{{section.sectionId}}</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title">{{section.tarif}} €<small class="text-muted fw-light"></small></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>{{section.description}}</li>                   
+                  </ul>
+                  <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+                </div>
+              </div>
+        </div>
+        
+  </div>
+</div>
+
+
+

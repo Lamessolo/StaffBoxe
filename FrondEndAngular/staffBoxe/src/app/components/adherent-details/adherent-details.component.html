@@ -1,0 +1,23 @@
+<div class="detail-section" *ngIf="adherent" >
+    <div class="container-fluid">
+  <h1 style="margin-top: 100px;">{{adherent.name}}</h1>
+  <img src="{{adherent.imageUrl}}" class="detail-img"/>
+<hr>
+
+<ul>
+
+    <li><h4>{{adherent.email}}</h4></li>
+    <li><h4>{{adherent.adresse}}</h4></li>
+    <li><h4>{{adherent.statut}}</h4></li>
+    <li><h4>{{adherent.poid }}<small>Kg</small></h4></li>
+    <li><h4>{{adherent.sexe.name}}</h4></li>
+    <li><h4>{{adherent.phone}}</h4></li>
+    <li><h4>{{adherent.categorie.name}}</h4></li>
+</ul>
+
+<p>{{adherent.adresse}}</p>
+<p><a class="btn btn-secondary" routerLink="/adherent/edit">View details »</a></p>
+<a routerLink="/adherents">Back to Liste</a>
+    </div>
+</div>
+

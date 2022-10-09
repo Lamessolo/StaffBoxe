@@ -1,0 +1,52 @@
+
+<div class="main-content">
+    <div class="section-content section-content-p30">
+            <div class="container-fluid">
+                <div></div>
+                    <div class="row">
+                      
+                        <div *ngFor="let tempAdherent of adherents" class="col-md-3">
+                            <div class="product-box">
+                                <h2>{{tempAdherent.name}}</h2>
+                                <a routerLink="/adherent/{{tempAdherent.id}}">
+                                    <img src="{{tempAdherent.imageUrl}}" class="img-responsive"/>
+                                </a>
+
+                                    <div>
+                                    <a routerLink="/adherent/{{tempAdherent.id}}">
+                                        <h1>{{tempAdherent.prenom}}</h1>
+                                    </a>
+                                    </div>
+
+                                    <div >
+                                        <h3>{{tempAdherent.section.sectionId}}</h3>
+                                    </div>
+                                <a href="#" class="primary-btn">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-9" style="padding-left: 30%">
+                    <ngb-pagination [(page)]="page"
+                     [pageSize]="size"
+                     [collectionSize]="collectionSize"
+                     [maxSize]="5"
+                     [boundaryLinks]="true"
+                      (pageChange)="homeListAdherents()">
+              
+                    </ngb-pagination> 
+                    </div>
+                    <div class="col-md-3 mt-2" style="text-align: right;">
+                        <span class="mr-2">Page Size</span>
+                        <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
+                            <option>2</option>
+                            <option selected="true">5</option>
+                            <option >10</option>
+                            <option >20</option>
+                        </select>
+                    </div>
+                </div>
+    </div>
+</div>
