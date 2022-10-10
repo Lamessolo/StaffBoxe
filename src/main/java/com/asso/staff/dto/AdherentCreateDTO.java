@@ -27,9 +27,9 @@ public class AdherentCreateDTO  implements Serializable{
 	private BigDecimal poid;
 	private String statut;
 	private String imageUrl;
-	private long section;
+    /*private long section;
 	private long categorie;
-	private long sexe;
+	private long sexe;*/
 	
 	
 	/* A partir d'unE entité adherent, je creer un AdherentCreateDTO qui va me permettre de creer un adherent 
