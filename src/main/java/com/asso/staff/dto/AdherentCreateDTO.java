@@ -27,10 +27,10 @@ public class AdherentCreateDTO  implements Serializable{
 	private BigDecimal poid;
 	private String statut;
 	private String imageUrl;
+
  /*	private long section;
 	private long categorie;
 	private long sexe; */
-	
 	
 	/* A partir d'unE entité adherent, je creer un AdherentCreateDTO qui va me permettre de creer un adherent 
 	public static AdherentCreateDTO mapEntityToDTO(Adherent adherent) {
@@ -45,8 +45,6 @@ public class AdherentCreateDTO  implements Serializable{
 				.name(adherent.getName())
 				.prenom(adherent.getPrenom())				
 				.adresse(adherent.getAdresse())
-				
-				
 				.email(adherent.getEmail())
 				.imageUrl(adherent.getImageUrl())
 				.poid(adherent.getPoid())

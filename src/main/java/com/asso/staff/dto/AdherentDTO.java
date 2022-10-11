@@ -30,9 +30,16 @@ public class AdherentDTO implements Serializable {
 	private BigDecimal poid;
 	private String statut;
 	private String imageUrl;
+
  /*	private SectionDTO section;
 	private CategorieDTO categorie;
 	private SexeDTO sexe; */
+
+	
+	/*private SectionDTO section;
+	private CategorieDTO categorie;
+	private SexeDTO sexe;*/
+
 	
 	/*
 	public static AdherentDTO mapEntityToDTO(Adherent adherent) {

@@ -3,7 +3,6 @@ package com.asso.staff.validator;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.util.NumberUtils;
 import org.springframework.util.StringUtils;
 
 import com.asso.staff.dto.AdherentCreateDTO;
@@ -39,7 +38,7 @@ public class AdherentValidator {
 		if(!StringUtils.hasLength(adherentCreateDto.getEmail())) {
 			errors.add("Veuillez renseigner l'email de l'adherent");
 		}
-		
+
 	/*	if(adherentCreateDto.getSection() == 0) {
 			errors.add("Veuillez renseigner une section existante pour l'adherent");
 		} */

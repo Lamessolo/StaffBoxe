@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     });
   }
   listHomeAdherents() {
-   this.adherentService.getHome(this.page-1,this.size,this.field).subscribe(
+   this.adherentService.getHome(this.page,this.size,this.field).subscribe(
     data => {
       this.adherents = data ;
     });

@@ -62,6 +62,8 @@ public class Adherent implements Serializable {
 	@Column(name="statut")
 	private String statut;
 	
+	@Column(name="date_naissance")
+	private Date dateNaissance;
 	
 	@Column(name="date_created")
 	@CreationTimestamp
