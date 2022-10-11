@@ -40,9 +40,9 @@ public class AdherentValidator {
 			errors.add("Veuillez renseigner l'email de l'adherent");
 		}
 		
-		if(adherentCreateDto.getSection() == 0) {
+	/*	if(adherentCreateDto.getSection() == 0) {
 			errors.add("Veuillez renseigner une section existante pour l'adherent");
-		}
+		} */
 			
 		return errors;
 	}

@@ -111,8 +111,8 @@ public class AdherentService {
 		adherentDto.setAdresse(adherent.getAdresse());
 		adherentDto.setPhone(adherent.getPhone());
 		adherentDto.setEmail(adherent.getEmail());
-		adherentDto.setSexe(SexeService.mapEntityToDTO(adherent.getSexe()));
-		adherentDto.setSection(SectionService.mapEntityToDTO(adherent.getSection()));
+	/*	adherentDto.setSexe(SexeService.mapEntityToDTO(adherent.getSexe()));*/
+	/*	adherentDto.setSection(SectionService.mapEntityToDTO(adherent.getSection())); */
 	   // adherentDto.setCategorie(CategorieService.mapEntityToDTO(adherent.getCategorie()));
 		return adherentDto;			
 	}
