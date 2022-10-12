@@ -17,7 +17,7 @@ import { SectionListComponent } from './components/section-list/section-list.com
 
 
 const routes :Routes = [
-  {path:"adherent/edit", component:AdherentEditComponent},
+  {path:"adherent/edit/:id", component:AdherentEditComponent},
   {path:"home", component:HomeComponent},
   {path:"adherent/:id", component: AdherentDetailsComponent},
   {path:"search/:keyword", component:AdherentListComponent},
