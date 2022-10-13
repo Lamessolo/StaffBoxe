@@ -34,12 +34,6 @@ public class AdherentDTO implements Serializable {
  /*	private SectionDTO section;
 	private CategorieDTO categorie;
 	private SexeDTO sexe; */
-
-	
-	/*private SectionDTO section;
-	private CategorieDTO categorie;
-	private SexeDTO sexe;*/
-
 	
 	/*
 	public static AdherentDTO mapEntityToDTO(Adherent adherent) {
