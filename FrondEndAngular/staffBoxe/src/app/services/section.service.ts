@@ -7,8 +7,8 @@ import { Section } from '../common/section';
   providedIn: 'root'
 })
 export class SectionService {
-  private UrlSection ="http://localhost:8080/api/section/all";
-
+  private UrlSection ="http://managerstaffboxe.herokuapp.com/api/section/all";
+ 
   constructor(private httpClient : HttpClient) { }
   
   getSectionList():Observable<Section[]>{
