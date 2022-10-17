@@ -21,7 +21,7 @@ import com.asso.staff.dto.AdherentCreateDTO;
 import com.asso.staff.dto.AdherentDTO;
 import com.asso.staff.entity.Adherent;
 import com.asso.staff.repository.AdherentRepository;
-import com.asso.staff.service.AdherentService;
+import com.asso.staff.serviceImpl.AdherentServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,7 +31,7 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin
 public class AdherentController {
 
-	private final AdherentService adherentService;
+	private final AdherentServiceImpl adherentService;
 	
 	
 	@GetMapping("/all")

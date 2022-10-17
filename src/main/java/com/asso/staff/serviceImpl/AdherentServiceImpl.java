@@ -1,10 +1,11 @@
-package com.asso.staff.service;
+package com.asso.staff.serviceImpl;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,19 +23,20 @@ import com.asso.staff.entity.Sexe;
 import com.asso.staff.exception.UserNotFoundException;
 import com.asso.staff.repository.AdherentRepository;
 import com.asso.staff.repository.SectionRepository;
+import com.asso.staff.service.IAdherentService;
 import com.asso.staff.validator.AdherentValidator;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class AdherentService {
+public class AdherentServiceImpl implements IAdherentService{
 
 	
 	
 	private final AdherentRepository adherentRepo;
 	private final SectionRepository sectionRepo;
-	
+	private final ModelMapper mapper;
 	
 	public Adherent addAdherent(Adherent adherent) {
 		adherent.setAdherentId(UUID.randomUUID().toString());
@@ -53,11 +55,12 @@ public class AdherentService {
 	
 	public AdherentDTO saveAdherent(AdherentCreateDTO adherentCreateDto) {
 		
+		// Je transforme l'AdherentDTO en entité nouvelle adherent
 		Adherent adherentNew = mapDtoToEntity(adherentCreateDto);
 		// Je sauve une entité dans la base
-		adherentRepo.save(adherentNew);
-		AdherentDTO newDtoAdherent = mapEntityToDTO(adherentNew);
-		return newDtoAdherent;
+		    addAdherent(adherentNew);
+		//adherentRepo.save(adherentNew);
+		return mapEntityToDTO(adherentNew);
 	}
 	
 	public List<AdherentDTO> getAdherentBySectionId(long id) {
@@ -97,10 +100,10 @@ public class AdherentService {
 	
 	private AdherentDTO mapEntityToDTO(Adherent adherent) {
 		
+		 //SexeServiceImpl.mapEntityToDTO(adherent.getSexe());
 		
-		 SexeService.mapEntityToDTO(adherent.getSexe());
-		
-		AdherentDTO adherentDto = new AdherentDTO();
+		 AdherentDTO adherentDto = mapper.map(adherent, AdherentDTO.class);
+	/*	AdherentDTO adherentDto = new AdherentDTO();
 		adherentDto.setId(adherent.getId());
 		adherentDto.setAdherentId(adherent.getAdherentId());
 		adherentDto.setName(adherent.getName());
@@ -119,13 +122,9 @@ public class AdherentService {
 	}
 	
 	public  Adherent mapDtoToEntity(AdherentCreateDTO adherentCreateDto) {
-		 Adherent newAdherent = null ;
-		if(adherentCreateDto == null) {
-			return null;
-		}
-		
-		if(adherentCreateDto.getId() == 0 ) {
-			 newAdherent = new Adherent();
+	
+			Adherent newAdherent = mapper.map(adherentCreateDto, Adherent.class);	
+	     /*	Adherent newAdherent = new Adherent();
 			String newAdherentId = adherentCreateDto.getName().toLowerCase() + "_" + adherentCreateDto.getPrenom()+ "_Id";
 			newAdherent.setAdherentId(newAdherentId);
 			newAdherent.setName(adherentCreateDto.getName());
@@ -144,7 +143,7 @@ public class AdherentService {
 				
 			newAdherent.setCategorie(mapDtoToEntity(adherentCreateDto.getCategorie()));
 				*/
-		}
+		
 		return newAdherent;
 		
 	}

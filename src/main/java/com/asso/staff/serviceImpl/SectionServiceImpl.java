@@ -1,4 +1,4 @@
-package com.asso.staff.service;
+package com.asso.staff.serviceImpl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class SectionService {
+public class SectionServiceImpl {
 
 	private final SectionRepository sectionRepo;
 	

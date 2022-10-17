@@ -1,4 +1,4 @@
-package com.asso.staff.service;
+package com.asso.staff.serviceImpl;
 
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class SexeService {
+public class SexeServiceImpl {
 
 	private final SexeRepository sexeRepo;
 	

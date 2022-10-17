@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.asso.staff.dto.AdherentDTO;
 import com.asso.staff.dto.SectionDTO;
-import com.asso.staff.service.AdherentService;
-import com.asso.staff.service.SectionService;
+import com.asso.staff.serviceImpl.AdherentServiceImpl;
+import com.asso.staff.serviceImpl.SectionServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin
 public class SectionController {
 
-	private final SectionService sectionService;
+	private final SectionServiceImpl sectionService;
 	
 	@GetMapping("/all")
 	public ResponseEntity<List<SectionDTO>> getAllSections(){
