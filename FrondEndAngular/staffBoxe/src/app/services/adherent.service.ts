@@ -9,11 +9,13 @@ import { Section } from '../common/section';
 })
 export class AdherentService {
 
-  private baseUrlAdherent ="https://managerstaffboxe.herokuapp.com/api/adherent";
+ /* private baseUrlAdherent ="https://managerstaffboxe.herokuapp.com/api/adherent"; */
 
-  private UrlSection ="https://managerstaffboxe.herokuapp.com/api/section/all";
+   private baseUrlAdherent = "http://localhost:8080/api/adherent";
 
+ /* private UrlSection ="https://managerstaffboxe.herokuapp.com/api/section/all";*/
 
+   private UrlSection =  "http://localhost:8080/api/section";
 
 
   constructor(private httpClient : HttpClient) { }

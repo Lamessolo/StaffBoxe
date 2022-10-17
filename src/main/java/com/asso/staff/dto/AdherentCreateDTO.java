@@ -2,6 +2,7 @@ package com.asso.staff.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Date;
 
 import com.asso.staff.entity.Adherent;
 
@@ -24,13 +25,14 @@ public class AdherentCreateDTO  implements Serializable{
 	private String adresse;			
 	private String email;
 	private String phone;
+	private Date dateNaissance;
 	private BigDecimal poid;
 	private String statut;
 	private String imageUrl;
 
- /*	private long section;
+ 	private long section;
 	private long categorie;
-	private long sexe; */
+	private long sexe; 
 	
 	/* A partir d'unE entité adherent, je creer un AdherentCreateDTO qui va me permettre de creer un adherent 
 	public static AdherentCreateDTO mapEntityToDTO(Adherent adherent) {

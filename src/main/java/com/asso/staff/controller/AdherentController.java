@@ -22,6 +22,7 @@ import com.asso.staff.dto.AdherentDTO;
 import com.asso.staff.entity.Adherent;
 import com.asso.staff.repository.AdherentRepository;
 import com.asso.staff.serviceImpl.AdherentServiceImpl;
+import com.asso.staff.utils.PageAdherentResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -33,17 +34,14 @@ public class AdherentController {
 
 	private final AdherentServiceImpl adherentService;
 	
-	
+		
 	@GetMapping("/all")
-	public ResponseEntity<List<AdherentDTO>> getAllAdherentsWithPaginationAndSort(@RequestParam int page, @RequestParam int size,@RequestParam String field){
-		List<AdherentDTO> adherents = adherentService.getAllAdherent(page,size,field);
-		return new ResponseEntity<>(adherents, HttpStatus.OK);
-		}
-	
-	@GetMapping("/all/{page}/{size}/{field}")
-	public ResponseEntity<List<AdherentDTO>> getAllAdherents(@PathVariable int page,@PathVariable int size,@PathVariable String field){
-		List<AdherentDTO> adherents = adherentService.getAllAdherent(page,size,field);
-		return new ResponseEntity<>(adherents,HttpStatus.OK);
+	public PageAdherentResponse getAllAdherents(
+			@RequestParam(value="pageNo",defaultValue= "0",required=false) int pageNo,
+			@RequestParam(value="pageSize",defaultValue= "10",required=false) int pageSize,
+			@RequestParam(value="sortBy",defaultValue= "id",required=false) String sortBy){
+		 
+		return adherentService.getAllAdherent(pageNo,pageSize,sortBy);
 		}
 	
 	@GetMapping("/section/{id}")
@@ -74,14 +72,22 @@ public class AdherentController {
 	@PostMapping("/add")
 	public ResponseEntity<AdherentDTO> addAdherent(@RequestBody AdherentCreateDTO adherentCreateDto){
 		
-		AdherentDTO newAdherent = adherentService.saveAdherent(adherentCreateDto);
+		AdherentDTO newAdherent = adherentService.createAdherent(adherentCreateDto);
 		return new ResponseEntity<>(newAdherent, HttpStatus.CREATED);	
+	}
+		
+	@PutMapping("update/{id}")
+	public ResponseEntity<AdherentDTO> updateAdherent(@PathVariable("id") long id,@RequestBody AdherentCreateDTO adherentCreateDto){
+		AdherentDTO updatedAdherent =  adherentService.updateAdherent(id,adherentCreateDto);		 
+		return new ResponseEntity<>(updatedAdherent,HttpStatus.OK);
+		
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteAdherent(@PathVariable("id") long id){
+	public ResponseEntity<String> deleteAdherent(@PathVariable("id") long id){
 		 adherentService.deleteAdherent(id);
-		return new ResponseEntity<>(HttpStatus.OK);
+		 String adherentDeleted = "L'adherent: "+id+ ",a été supprimé";
+		return new ResponseEntity<>(adherentDeleted,HttpStatus.OK);
 		
 	}
 	

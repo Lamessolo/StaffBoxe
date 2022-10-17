@@ -12,11 +12,9 @@ import com.asso.staff.entity.Adherent;
 
 public interface AdherentRepository extends JpaRepository<Adherent, Long> {
 
-	void deleteAdherentById(Long id);
 	Optional<Adherent> findAdherentById(Long id);
 	List<Adherent> findBySectionId(@Param("id") long id);
-	List<Adherent> findBySexeId(@Param("id") long id);
-		
+	List<Adherent> findBySexeId(@Param("id") long id);		
 	List<Adherent> findByNameContaining(@Param("name")String name);
 	  
 	 

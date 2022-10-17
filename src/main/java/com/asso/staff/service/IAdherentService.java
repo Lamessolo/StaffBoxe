@@ -5,14 +5,15 @@ import java.util.List;
 import com.asso.staff.dto.AdherentCreateDTO;
 import com.asso.staff.dto.AdherentDTO;
 import com.asso.staff.entity.Adherent;
+import com.asso.staff.utils.PageAdherentResponse;
 
 public interface IAdherentService {
 
 	Adherent addAdherent(Adherent adherent);
 	
-	List<AdherentDTO> getAllAdherent(int page,int size,String field);
+	PageAdherentResponse getAllAdherent(int pageNo,int pageSize,String sortBy);
 	
-	AdherentDTO saveAdherent(AdherentCreateDTO adherentCreateDto) ;
+	AdherentDTO createAdherent(AdherentCreateDTO adherentCreateDto) ;
 	
 	List<AdherentDTO> getAdherentBySectionId(long id);
 	
@@ -21,4 +22,6 @@ public interface IAdherentService {
 	List<AdherentDTO> findAdherentByName(String name);
 	
 	AdherentDTO findAdherentById(Long id);
+	
+	AdherentDTO updateAdherent (long adherentId, AdherentCreateDTO adherentCreateDto);
 }
