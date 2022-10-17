@@ -7,7 +7,7 @@ import { Section } from '../common/section';
   providedIn: 'root'
 })
 export class SectionService {
-  private UrlSection ="http://managerstaffboxe.herokuapp.com/api/section/all";
+  private UrlSection ="https://managerstaffboxe.herokuapp.com/api/section/all";
  
   constructor(private httpClient : HttpClient) { }
   

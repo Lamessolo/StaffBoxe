@@ -9,9 +9,9 @@ import { Section } from '../common/section';
 })
 export class AdherentService {
 
-  private baseUrlAdherent ="http://managerstaffboxe.herokuapp.com/api/adherent";
+  private baseUrlAdherent ="https://managerstaffboxe.herokuapp.com/api/adherent";
 
-  private UrlSection ="http://managerstaffboxe.herokuapp.com/api/section/all";
+  private UrlSection ="https://managerstaffboxe.herokuapp.com/api/section/all";
 
 
 
