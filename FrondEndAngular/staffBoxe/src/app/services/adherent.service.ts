@@ -15,8 +15,13 @@ export class AdherentService {
   
   constructor(private httpClient : HttpClient) { }
 
-  getHome(page :number,size: number,field :string):Observable<Adherent[]>{
+ /* getHome(page :number,size: number,field :string):Observable<Adherent[]>{
     const searchUrl = `${this.baseUrlAdherent}/all?page=${page}&size=${size}&field=${field}`;
+    return this.httpClient.get<Adherent[]>(searchUrl);
+  }*/
+
+  getHome():Observable<Adherent[]>{
+    const searchUrl = `${this.baseUrlAdherent}/all`;
     return this.httpClient.get<Adherent[]>(searchUrl);
   }
   getAdherentById(theAdherentId: number):Observable<Adherent>{

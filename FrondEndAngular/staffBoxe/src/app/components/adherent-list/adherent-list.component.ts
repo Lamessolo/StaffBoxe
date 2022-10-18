@@ -75,7 +75,7 @@ export class AdherentListComponent implements OnInit {
   }
 
   homeListAdherents(){
-this.adherentService.getHome(this.page - 1,this.size,this.field).subscribe(data => {
+this.adherentService.getHome().subscribe(data => {
   this.adherents = data;
  });
 }
