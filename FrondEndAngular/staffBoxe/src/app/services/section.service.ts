@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 import { Section } from '../common/section';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SectionService {
-  private UrlSection ="https://managerstaffboxe.herokuapp.com/api/section/all";
+  private UrlSection = environment.UrlSection;
  
   constructor(private httpClient : HttpClient) { }
   

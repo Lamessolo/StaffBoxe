@@ -11,7 +11,7 @@ import { Section } from '../common/section';
 export class AdherentService {
 
   private baseUrlAdherent = environment.UrlAdherent;
- 
+  private baseUrlSection = environment.UrlSection;
   
   constructor(private httpClient : HttpClient) { }
 
@@ -33,7 +33,7 @@ export class AdherentService {
   }
 
   getSectionList():Observable<Section[]>{
-    const SectionUrl = `${this.UrlSection}`;
+    const SectionUrl = `${this.baseUrlSection}`;
     return this.httpClient.get<Section[]>(SectionUrl);
   }
 
