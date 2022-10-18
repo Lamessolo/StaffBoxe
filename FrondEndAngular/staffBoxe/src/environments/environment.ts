@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+
+ /*UrlAdherent: "http://localhost:8080/api/adherent",
+
+  UrlSection: "http://localhost:8080/api/section/all"*/
+
+  UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
+
+  UrlSection: "https://managerstaffboxe.herokuapp.com/api/section/all"
+ 
 };
 
 /*

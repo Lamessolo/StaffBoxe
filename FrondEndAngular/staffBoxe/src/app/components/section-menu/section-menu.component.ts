@@ -26,13 +26,7 @@ export class SectionMenuComponent implements OnInit {
       this.section = data ;
 
     });
-  /*  this.adherentService.getSectionList().subscribe(
-      
-      data =>{
-        console.log('Sections =' + JSON.stringify(data));
-        this.section = data ;
-
-      }); */
+  
     
   }
 

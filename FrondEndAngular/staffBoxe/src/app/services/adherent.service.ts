@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Adherent } from '../common/adherent';
 import { Section } from '../common/section';
 
@@ -9,15 +10,9 @@ import { Section } from '../common/section';
 })
 export class AdherentService {
 
- /* private baseUrlAdherent ="https://managerstaffboxe.herokuapp.com/api/adherent"; */
-
-   private baseUrlAdherent = "http://localhost:8080/api/adherent";
-
- /* private UrlSection ="https://managerstaffboxe.herokuapp.com/api/section/all";*/
-
-   private UrlSection =  "http://localhost:8080/api/section";
-
-
+  private baseUrlAdherent = environment.UrlAdherent;
+ 
+  
   constructor(private httpClient : HttpClient) { }
 
   getHome(page :number,size: number,field :string):Observable<Adherent[]>{
