@@ -73,25 +73,16 @@ public class Adherent implements Serializable {
 	@Column(name="last_updated")
 	private Date lastUpdate;
 			
-	@OneToOne (cascade = CascadeType.ALL)
+	@OneToOne 
 	@JoinColumn(name="categorie_id", referencedColumnName="id")	
 	private Categorie Categorie;
-	
-   /*	
-	@ManyToMany
-	@JoinTable(
-	name="Roles_Adherents",
-	joinColumns =@JoinColumn(name="adherents_id")
-	,inverseJoinColumns =@JoinColumn(name="role_id"))
-	private Set<Role> roles;
-	*/
-		
-	@OneToOne (cascade = CascadeType.ALL)
+			
+	@OneToOne 
 	@JoinColumn(name="section_id", referencedColumnName="id")
 	private Section section;
 	
 	
-	@OneToOne (cascade = CascadeType.ALL)
+	@OneToOne 
 	@JoinColumn(name="sexe_id", referencedColumnName="id")
 	private Sexe sexe;
 

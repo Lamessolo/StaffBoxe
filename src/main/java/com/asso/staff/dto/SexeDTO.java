@@ -17,10 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class SexeDTO implements Serializable {
 
-		
 	private long id;
 	private String name;
 	
-	
-
 }

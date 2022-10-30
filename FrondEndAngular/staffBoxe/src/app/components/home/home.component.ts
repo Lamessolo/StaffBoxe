@@ -11,12 +11,9 @@ import { SectionService } from 'src/app/services/section.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  adherents : Adherent[] =[] ;
-  section:Section[] = [];
-  collectionSize :number = 30;
-  page : number = 0;
-  size : number = 5;
-  field : string = "name" ;
+  adherents!:Adherent[];
+  section!:Section[] ;
+ 
   constructor(private adherentService : AdherentService,
               private sectionService : SectionService,
                 private route : ActivatedRoute) { }
@@ -40,14 +37,5 @@ export class HomeComponent implements OnInit {
         this.section = data ;
       });
     
-  }
-
-
-
-  updatePageSize(pageSize : string){
-
-    this.size = +pageSize;
-    this.page = 0;
-    this.listHomeAdherents();
   }
 }

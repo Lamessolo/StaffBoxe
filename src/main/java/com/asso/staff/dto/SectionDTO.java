@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class SectionDTO implements Serializable {
-
 	
 	private long id;	
 	private String SectionId;	
@@ -30,36 +29,4 @@ public class SectionDTO implements Serializable {
 	private String name;
 	private BigDecimal tarif;
 	
-	
-	/* A partir d'une section entité je recupere un sectionDTO 
-	public static SectionDTO mapEntityToDTO(Section section) {
-		
-		if(section == null) {
-			return null;
-		}
-		
-		return SectionDTO.builder()
-				.id(section.getId())
-				.SectionId(section.getSectionId())
-				.name(section.getName())
-				.description(section.getDescription())
-				.tarif(section.getTarif())
-				.build();
-								
-	}
-*/
-	/* A partir d'un sectionDTO  je recupere une section entité 
-	public static Section  mapDtoToEntity(long sectionDto) {
-		boolean existSection = false;
-		Section section = null ;
-		if(sectionDto == 0) {return null;}
-				
-		if(sectionDto != 0) {
-			existSection =	sectionRepo.existsById(sectionDto);
-			section = sectionRepo.findById(sectionDto).get();
-		}
-							
-		return section;
-}
-*/
 }

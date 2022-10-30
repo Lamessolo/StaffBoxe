@@ -11,13 +11,10 @@ import { AdherentService } from 'src/app/services/adherent.service';
 })
 export class AdherentListComponent implements OnInit {
   section! : Section[];
-  adherents : Adherent[] =[] ; ;
+  adherents! : Adherent[]; 
   currentSectionId : number = 3 ;
-  collectionSize :number = 30;
   searchMode : boolean = false;
-  page : number = 0;
-  size : number = 5;
-  field : string = "name" ;
+  
  
 
   constructor(private adherentService : AdherentService,
@@ -63,7 +60,8 @@ export class AdherentListComponent implements OnInit {
    // On convertis l'id Section de string vers number
    this.currentSectionId = +this.route.snapshot.paramMap.get("id")!;
    this.adherentService.getAdherentList(this.currentSectionId).subscribe(
-    data => { this.adherents = data;}
+    data => 
+    { this.adherents = data;}
   );
  } else{
    // Il n'ya pas de section Id valable et on met 1 par defaut
@@ -80,10 +78,4 @@ this.adherentService.getHome().subscribe(data => {
  });
 }
 
-updatePageSize(pageSize : string){
-
-  this.size = +pageSize;
-  this.page = 0;
-  this.homeListAdherents();
-}
 }

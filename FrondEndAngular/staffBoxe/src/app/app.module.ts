@@ -14,10 +14,14 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbModule,NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdherentEditComponent } from './components/adherent-edit/adherent-edit.component';
 import { SectionListComponent } from './components/section-list/section-list.component';
-
+import { AdherentAddComponent } from './components/adherent-add/adherent-add.component';
+import { AdherentFormComponent } from './components/adherent-form/adherent-form.component';
+import{  FormsModule}  from '@angular/forms';
 
 const routes :Routes = [
   {path:"adherent/edit/:id", component:AdherentEditComponent},
+  {path:"adherent/add", component:AdherentAddComponent},
+  {path:"adherent/forms", component:AdherentFormComponent},
   {path:"home", component:HomeComponent},
   {path:"adherent/:id", component: AdherentDetailsComponent},
   {path:"search/:keyword", component:AdherentListComponent},
@@ -39,7 +43,9 @@ const routes :Routes = [
     HomeComponent,
     NavBarComponent,
     AdherentEditComponent,
-    SectionListComponent
+    SectionListComponent,
+    AdherentAddComponent,
+    AdherentFormComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -47,7 +53,8 @@ const routes :Routes = [
     HttpClientModule,
     NoopAnimationsModule,
     NgbPaginationModule,
-    NgbModule
+    NgbModule,
+    FormsModule
     
     
   ],

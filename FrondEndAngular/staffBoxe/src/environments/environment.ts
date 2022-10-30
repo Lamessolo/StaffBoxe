@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
 
-  UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
+  UrlAdherent: "http://localhost:8080/api/adherent",
 
-  UrlSection: "https://managerstaffboxe.herokuapp.com/api/section/all"
+  UrlSection: "http://localhost:8080/api/section/all"
  
 };
 

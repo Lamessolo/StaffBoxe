@@ -12,7 +12,7 @@
     <li><h4>{{adherent.email}}</h4></li>
     <li><h4>{{adherent.adresse}}</h4></li>
     <li><h4>{{adherent.statut}}</h4></li>
-    <li><h4>{{adherent.poid }}<small>Kg</small></h4></li>
+    <li><h4>{{adherent.poid}}<small>Kg</small></h4></li>
     <li><h4>{{adherent.phone}}</h4></li>
    <!--  <li><h4>{{adherent.categorie.name}}</h4></li>
 
@@ -21,8 +21,8 @@
 </ul>
 
 <div class="d-flex flex-row justify-content-center align-items-center">
-    <a class="btn btn-secondary" routerLink="/adherent/edit/{{adherent.id}}"><i class="fa fa-pencil"></i></a>
-    <a class="btn btn-success"><i class="fa fa-trash"></i></a>
+    <a class="waves-effect waves-light btn" routerLink="/adherent/edit/{{adherent.id}}"><i class="fa fa-pencil"></i></a>
+    <a class="btn btn-success" (click)="delete(adherent.id)"><i class="fa fa-trash"></i></a>
 </div>
 
 <a routerLink="/adherents">Back to Liste</a>
