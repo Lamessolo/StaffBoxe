@@ -20,13 +20,14 @@ export class AdherentEditComponent implements OnInit {
               private router :Router, private sectionService : SectionService ) { }
 
   ngOnInit(): void {
-    this.id =this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
     this.loadAdherent();
     this.loadSections();
   }
 
   loadAdherent(){
-   this.adherentService.getAdherentById(this.id).subscribe(data =>{
+  const theAdherentId : number = +this.route.snapshot.paramMap.get('id')!;
+   this.adherentService.getAdherentById(theAdherentId).subscribe(data =>{
     this.adherent = data ;
    });
   }
@@ -37,12 +38,14 @@ export class AdherentEditComponent implements OnInit {
   }
 
   goToAdherentDetail(){
-this.router.navigate(['/adherent/'+this.id])
+    const theAdherentId : number = +this.route.snapshot.paramMap.get('id')!;
+this.router.navigate(['/adherent/'+ theAdherentId])
   }
 
   onSubmit():void {
     console.log();
-    this.adherentService.updateAdherent(this.adherent,this.id).subscribe(
+    const theAdherentId : number = +this.route.snapshot.paramMap.get('id')!;
+    this.adherentService.updateAdherent(this.adherent,theAdherentId).subscribe(
       data=>{
         this.goToAdherentDetail();
       }, error => console.log(error));

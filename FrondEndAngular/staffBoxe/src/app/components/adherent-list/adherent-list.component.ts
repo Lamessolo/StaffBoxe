@@ -65,7 +65,7 @@ export class AdherentListComponent implements OnInit {
   );
  } else{
    // Il n'ya pas de section Id valable et on met 1 par defaut
-   this.currentSectionId = 0;
+   //this.currentSectionId = 0;
  this.homeListAdherents();
  }
  
@@ -74,8 +74,8 @@ export class AdherentListComponent implements OnInit {
 
   homeListAdherents(){
 this.adherentService.getHome().subscribe(data => {
-  this.adherents = data;
- });
+  this.adherents = data.content;
+ }, error => console.log(error));
 }
 
 }

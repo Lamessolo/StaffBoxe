@@ -1,23 +1,22 @@
 <div class="main-content">
     <div class="section-content section-content-p30">
-            <div class="container-fluid">
-                <div></div>
-                    <div class="row">
-                      
-                        <div *ngFor="let tempAdherent of adherents" class="col-md-3">
+            <div class="container-fluid"> 
+                    <div class="row">                     
+                        <div *ngFor="let allAdherent of adherents" class="col-md-3">
                             <div class="product-box">
                                
-                                <a routerLink="/adherent/{{tempAdherent.id}}">
-                                    <img src="{{tempAdherent.imageUrl}}" class="img-responsive"/>
+                                <a routerLink="/adherent/{{allAdherent.id}}">
+                                    <img src="{{allAdherent.imageUrl}}" class="img-responsive"/>
                                 </a>
 
                                     <div>
-                                    <a routerLink="/adherent/{{tempAdherent.id}}">
-                                        <h2>{{tempAdherent.name}}</h2>  <h1>{{tempAdherent.prenom}}</h1>
-                                    </a>
+                                        <a routerLink="/adherent/{{allAdherent.id}}">
+                                            <h2>{{allAdherent.name}}</h2>  <h1>{{allAdherent.prenom}}</h1>
+                                        </a>
                                     </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
+        </div>
+</div>

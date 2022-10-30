@@ -7,7 +7,11 @@ export const environment = {
 
   UrlAdherent: "http://localhost:8080/api/adherent",
 
-  UrlSection: "http://localhost:8080/api/section/all"
+  UrlSection: "http://localhost:8080/api/section/all",
+
+  UrlSexe: "http://localhost:8080/api/sexe",
+
+  UrlCategorie: "http://localhost:8080/api/categorie"
  
 };
 

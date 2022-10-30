@@ -72,31 +72,39 @@
               aria-label=".form-select-lg example"
               [(ngModel)]="adherent.section" name="section" #section="ngModel"> 
                      <option *ngFor="let tempSection of sections" 
-                     value={{tempSection.id}}>{{tempSection.sectionId}}</option>
-                     
+                     value={{tempSection.id}}>{{tempSection.sectionId | uppercase}}</option>           
               </select>
             </div>
             <div class="form-group">
                 <label for="categorie">Categorie</label>
-                <input type="number" class="form-control" id="categorie" 
+               <!--  <input type="number" class="form-control" id="categorie" 
                        required 
-                    [(ngModel)]="adherent.categorie" name="categorie" #categorie="ngModel"
-                   />
+                    [(ngModel)]="adherent.categorie" name="categorie" #categorie="ngModel">-->
+                    <select class="form-select form-select-lg mb-3" 
+                    aria-label=".form-select-lg example"
+                    [(ngModel)]="adherent.categorie" name="categorie" #categorie="ngModel"> 
+                           <option *ngFor="let tempCategorie of categories" 
+                           value={{tempCategorie.id}}>{{tempCategorie.name | uppercase}} -- {{tempCategorie.description}}</option>           
+                    </select>
             </div>
+           
             <div class="form-group">
-                <label for="sexe">Sexe</label>
-                <input type="number" class="form-control" id="Sexe" 
-                       required 
-                    [(ngModel)]="adherent.sexe" name="sexe" #sexe="ngModel"
-                   />
-            </div>
-
+              <label for="sexe">Sexe</label>
+              <select class="form-select form-select-lg mb-3" 
+              aria-label=".form-select-lg example"
+              [(ngModel)]="adherent.sexe" name="sexe" #sexe="ngModel"> 
+                     <option *ngFor="let tempSexe of sexes" 
+                     value={{tempSexe.id}}>{{tempSexe.name}}</option>           
+              </select>
+            </div>  
+                 <!--   <input type="checkbox" value={{tempSexe.id}}
+                     class="form-check-input"
+                      id="tempSexe.name" 
+                 [(ngModel)]="adherent.sexe" name="sexe" #sexe="ngModel">  -->    
+                       
             <button class="btn btn-success" type="submit">Valider</button>
         </div>
     </div>
-
-
  </div>
-
 </form>
 </div>

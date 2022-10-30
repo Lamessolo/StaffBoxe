@@ -105,15 +105,12 @@ public class AdherentServiceImpl implements IAdherentService{
 		return adherents;
 	}
 	
-	
-	
 	public AdherentDTO findAdherentById(Long id) {
 		Adherent entityAdherent = adherentRepository.findAdherentById(id)
 				.orElseThrow(()->new UserNotFoundException("Adherent by id " + id + "was not found"));
 		return mapEntityToDTO(entityAdherent);
 	}
-	
-	
+		
 	@Override
 	public AdherentDTO updateAdherent(long adherentId, AdherentCreateDTO adherentCreateDto) {
 		// Recuperer adherent entite by Id
@@ -144,8 +141,6 @@ public class AdherentServiceImpl implements IAdherentService{
 		return mapEntityToDTO(adherentUpdated);
 	}
 
-	
-	
 	public Map<String,Boolean> deleteAdherent(long id) {
 		Adherent entityAdherent = adherentRepository.findAdherentById(id)
 				.orElseThrow(()->new UserNotFoundException("Adherent by id " + id + "was not found"));
@@ -163,8 +158,6 @@ public class AdherentServiceImpl implements IAdherentService{
 		return adherentDto;			
 	}
 	
-	
-
 	public  Adherent mapDtoToEntity(AdherentCreateDTO adherentCreateDto) {
 	
 			Adherent newAdherent = mapper.map(adherentCreateDto, Adherent.class);	

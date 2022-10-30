@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Adherent } from '../common/adherent';
+import { Pagination } from '../common/pagination';
 import { Section } from '../common/section';
 
 @Injectable({
@@ -15,9 +16,9 @@ export class AdherentService {
   
   constructor(private httpClient : HttpClient) { }
 
-  getHome():Observable<Adherent[]>{
+  getHome():Observable<Pagination>{
     const searchUrl = `${this.baseUrlAdherent}/all`;
-    return this.httpClient.get<Adherent[]>(searchUrl);
+    return this.httpClient.get<Pagination>(searchUrl);
   }
   getAdherentById(theAdherentId: number):Observable<Adherent>{
   

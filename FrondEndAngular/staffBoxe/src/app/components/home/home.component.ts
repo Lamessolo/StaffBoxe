@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   listHomeAdherents() {
    this.adherentService.getHome().subscribe(
     data => {
-      this.adherents = data ;
+      this.adherents = data.content ;
     });
   }
 
