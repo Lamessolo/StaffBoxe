@@ -1,9 +1,8 @@
 package com.asso.staff.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import org.springframework.data.domain.Page;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.asso.staff.dto.AdherentCreateDTO;
 import com.asso.staff.dto.AdherentDTO;
-import com.asso.staff.entity.Adherent;
-import com.asso.staff.repository.AdherentRepository;
 import com.asso.staff.serviceImpl.AdherentServiceImpl;
 import com.asso.staff.utils.PageAdherentResponse;
 

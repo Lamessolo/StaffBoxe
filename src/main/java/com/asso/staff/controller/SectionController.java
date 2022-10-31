@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.asso.staff.dto.AdherentDTO;
 import com.asso.staff.dto.SectionDTO;
-import com.asso.staff.serviceImpl.AdherentServiceImpl;
+
 import com.asso.staff.serviceImpl.SectionServiceImpl;
 
 import lombok.RequiredArgsConstructor;
