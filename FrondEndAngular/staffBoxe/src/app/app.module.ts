@@ -17,6 +17,7 @@ import { SectionListComponent } from './components/section-list/section-list.com
 import { AdherentAddComponent } from './components/adherent-add/adherent-add.component';
 import { AdherentFormComponent } from './components/adherent-form/adherent-form.component';
 import{  FormsModule}  from '@angular/forms';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 const routes :Routes = [
   {path:"adherent/edit/:id", component:AdherentEditComponent},
@@ -54,10 +55,9 @@ const routes :Routes = [
     NoopAnimationsModule,
     NgbPaginationModule,
     NgbModule,
-    FormsModule
-    
-    
-  ],
+    FormsModule,
+    PaginationModule.forRoot()  
+  ],exports:[PaginationModule],
   providers: [AdherentService],
   bootstrap: [AppComponent]
 })

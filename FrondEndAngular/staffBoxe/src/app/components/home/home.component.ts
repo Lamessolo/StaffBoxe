@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Adherent } from 'src/app/common/adherent';
+import { PaginationParams } from 'src/app/common/paginationParams';
 import { Section } from 'src/app/common/section';
 import { AdherentService } from 'src/app/services/adherent.service';
 import { SectionService } from 'src/app/services/section.service';
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit {
   listHomeAdherents() {
    this.adherentService.getHome().subscribe(
     data => {
-      this.adherents = data.content ;
+      this.adherents = data.content;
     });
   }
 

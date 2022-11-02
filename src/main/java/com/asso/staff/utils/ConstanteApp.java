@@ -7,7 +7,7 @@ public class ConstanteApp {
 
 	public static final String DEFAULT_PAGE_NUMEBR ="0";
 	
-	public static final String DEFAULT_PAGE_SIZE ="10";
+	public static final String DEFAULT_PAGE_SIZE ="20";
 	
 	public static final String DEFAULT_SORT_BY ="id";
 	

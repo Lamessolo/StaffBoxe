@@ -16,6 +16,7 @@ export class Adherent {
     public imageUrl!: string;
     public statut!: string;
     public poid!: number;
+    public dateNaissance! : Date;
     /*public dateCreation: Date;
     public dateUpdate: Date;*/
     public sexe!: Sexe;

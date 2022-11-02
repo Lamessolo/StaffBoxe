@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Adherent } from 'src/app/common/adherent';
+import { PaginationParams } from 'src/app/common/paginationParams';
 import { Section } from 'src/app/common/section';
 import { AdherentService } from 'src/app/services/adherent.service';
-
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 @Component({
   selector: 'app-adherent-list',
   templateUrl: './adherent-list-grid.component.html',
@@ -14,6 +15,7 @@ export class AdherentListComponent implements OnInit {
   adherents! : Adherent[]; 
   currentSectionId : number = 3 ;
   searchMode : boolean = false;
+  totalAdherent! : number ;
   
  
 
@@ -75,6 +77,7 @@ export class AdherentListComponent implements OnInit {
   homeListAdherents(){
 this.adherentService.getHome().subscribe(data => {
   this.adherents = data.content;
+  this.totalAdherent = data.totalElements;
  }, error => console.log(error));
 }
 

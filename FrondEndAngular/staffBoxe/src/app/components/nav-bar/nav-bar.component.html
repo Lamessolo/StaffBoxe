@@ -1,17 +1,48 @@
-<div class="d-flex flex-column flex-md-row align-items-center justify-content-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+<!--<div class="d-flex flex-column flex-md-row align-items-center justify-content-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
    <nav class="p-2 my-md-0 mr-md-3" >
 <a class="p-2 text-dark" routerLink="/home">Home</a>
 <a class="p-2 text-dark" href="#">Adherents</a>
-
-   
-
-
-   </nav>
+      <ul>
+         <li class="menu-deroulant">
+         <a href="#">Adherents</a>
+         <ul class="sous-menu">
+            <li><a routerLink="/adherent/forms">News</a></li>
+         </ul>
+         </li>
+      </ul>
    <div class="d-flex align-items-center">
-      <app-search></app-search>
-      <a class="btn btn-outline-primary" href="#"> Sign up</a>
-      <a class="btn btn-outline-secondary" href="#">Login</a>
+      <app-search></app-search>   
    </div>
-   
-</div>
+   </nav> 
+</div> -->
+<nav class="navbar navbar-expand-lg bg-light">
+   <div class="container-fluid">
+     <a class="navbar-brand" href="#">STAFF BOXE</a>
+     <div class="collapse navbar-collapse" id="navbarScroll">
+       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+         <li class="nav-item">
+           <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="#">Adherents</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" routerLink="/adherent/forms">News</a>
+          </li>  
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="true">
+            Adherents
+           </a>
+           <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="#">News</a></li>
+             <li><a class="dropdown-item" href="#">Tableau Adherents</a></li>
+             <li><hr class="dropdown-divider"></li>
+             <li><a class="dropdown-item" href="#">Something else here</a></li>
+           </ul>
+         </li>      
+       </ul>
+       <app-search></app-search>
+     </div>
+   </div>
+ </nav>
 

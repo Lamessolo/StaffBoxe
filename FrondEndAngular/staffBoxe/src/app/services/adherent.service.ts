@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Adherent } from '../common/adherent';
 import { Pagination } from '../common/pagination';
+import { PaginationParams } from '../common/paginationParams';
 import { Section } from '../common/section';
 
 @Injectable({

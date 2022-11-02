@@ -5,21 +5,21 @@
 export const environment = {
   production: false,
 
- /* UrlAdherent: "http://localhost:8080/api/adherent",
+ UrlAdherent: "http://localhost:8080/api/adherent",
 
   UrlSection: "http://localhost:8080/api/section/all",
 
   UrlSexe: "http://localhost:8080/api/sexe",
 
-  UrlCategorie: "http://localhost:8080/api/categorie"*/
-  UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
+  UrlCategorie: "http://localhost:8080/api/categorie"
+
+  /* UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
 
   UrlSection: "https://managerstaffboxe.herokuapp.com/api/section/all",
 
   UrlSexe: "https://managerstaffboxe.herokuapp.com/api/sexe",
 
-  UrlCategorie: "https://managerstaffboxe.herokuapp.com/api/categorie"
- 
+  UrlCategorie: "https://managerstaffboxe.herokuapp.com/api/categorie"*/
 };
 
 /*
