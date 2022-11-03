@@ -1,6 +1,11 @@
 package com.asso.staff.controller;
 
 import java.util.List;
+<<<<<<< HEAD
+=======
+import java.util.Map;
+import java.util.Optional;
+>>>>>>> 6b263ed8bb14a9d775c425451022ab2003eb608c
 
 
 import org.springframework.http.HttpStatus;
@@ -19,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.asso.staff.dto.AdherentCreateDTO;
 import com.asso.staff.dto.AdherentDTO;
 import com.asso.staff.serviceImpl.AdherentServiceImpl;
+import com.asso.staff.utils.ConstanteApp;
 import com.asso.staff.utils.PageAdherentResponse;
 
 import lombok.RequiredArgsConstructor;
@@ -34,9 +40,9 @@ public class AdherentController {
 		
 	@GetMapping("/all")
 	public PageAdherentResponse getAllAdherents(
-			@RequestParam(value="pageNo",defaultValue= "0",required=false) int pageNo,
-			@RequestParam(value="pageSize",defaultValue= "10",required=false) int pageSize,
-			@RequestParam(value="sortBy",defaultValue= "id",required=false) String sortBy){
+			@RequestParam(value="pageNo",defaultValue= ConstanteApp.DEFAULT_PAGE_NUMEBR,required=false) int pageNo,
+			@RequestParam(value="pageSize",defaultValue= ConstanteApp.DEFAULT_PAGE_SIZE,required=false) int pageSize,
+			@RequestParam(value="sortBy",defaultValue= ConstanteApp.DEFAULT_SORT_BY,required=false) String sortBy){
 		 
 		return adherentService.getAllAdherent(pageNo,pageSize,sortBy);
 		}
@@ -59,7 +65,6 @@ public class AdherentController {
 		return new ResponseEntity<>(adherent, HttpStatus.OK);
 		}
 	
-	
 	@GetMapping("/search/{name}")
 	public ResponseEntity<List<AdherentDTO>> getAdherentByName(@PathVariable("name") String name){
 		List<AdherentDTO> adherents = adherentService.findAdherentByName(name);
@@ -80,13 +85,14 @@ public class AdherentController {
 		
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteAdherent(@PathVariable("id") long id){
-		 adherentService.deleteAdherent(id);
-		 String adherentDeleted = "L'adherent: "+id+ ",a été supprimé";
-		return new ResponseEntity<>(adherentDeleted,HttpStatus.OK);
+	@DeleteMapping("delete/{id}")
+	public ResponseEntity<Map<String,Boolean>> deleteAdherent(@PathVariable("id") long adherentId){
 		
+		return new ResponseEntity<>(adherentService.deleteAdherent(adherentId), HttpStatus.OK);
 	}
+	
+	
+	
 	
 	
 	

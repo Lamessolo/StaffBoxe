@@ -1,12 +1,12 @@
 package com.asso.staff.serviceImpl;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
-import org.slf4j.Logger;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -14,9 +14,6 @@ import org.springframework.stereotype.Service;
 
 import com.asso.staff.dto.AdherentCreateDTO;
 import com.asso.staff.dto.AdherentDTO;
-import com.asso.staff.dto.CategorieDTO;
-import com.asso.staff.dto.SectionDTO;
-import com.asso.staff.dto.SexeDTO;
 import com.asso.staff.entity.Adherent;
 import com.asso.staff.entity.Categorie;
 import com.asso.staff.entity.Section;
@@ -29,7 +26,7 @@ import com.asso.staff.repository.SectionRepository;
 import com.asso.staff.repository.SexeRepository;
 import com.asso.staff.service.IAdherentService;
 import com.asso.staff.utils.PageAdherentResponse;
-import com.asso.staff.validator.AdherentValidator;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -108,18 +105,12 @@ public class AdherentServiceImpl implements IAdherentService{
 		return adherents;
 	}
 	
-	
-	
 	public AdherentDTO findAdherentById(Long id) {
-		if(id == null) {
-			return null ; 
-		}
-		Adherent entity = adherentRepository.findAdherentById(id)
+		Adherent entityAdherent = adherentRepository.findAdherentById(id)
 				.orElseThrow(()->new UserNotFoundException("Adherent by id " + id + "was not found"));
-		return mapEntityToDTO(entity);
+		return mapEntityToDTO(entityAdherent);
 	}
-	
-	
+		
 	@Override
 	public AdherentDTO updateAdherent(long adherentId, AdherentCreateDTO adherentCreateDto) {
 		// Recuperer adherent entite by Id
@@ -150,12 +141,14 @@ public class AdherentServiceImpl implements IAdherentService{
 		return mapEntityToDTO(adherentUpdated);
 	}
 
-	
-	
-	public void deleteAdherent(Long id) {
-		Adherent adherent = adherentRepository.findById(id)
-				.orElseThrow(()-> new ResourceNotFoundException("Adherent","id",id));
-		adherentRepository.delete(adherent);
+	public Map<String,Boolean> deleteAdherent(long id) {
+		Adherent entityAdherent = adherentRepository.findAdherentById(id)
+				.orElseThrow(()->new UserNotFoundException("Adherent by id " + id + "was not found"));
+		adherentRepository.delete(entityAdherent);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return response;
+		
 	}
 	
 	private AdherentDTO mapEntityToDTO(Adherent adherent) {
@@ -165,8 +158,6 @@ public class AdherentServiceImpl implements IAdherentService{
 		return adherentDto;			
 	}
 	
-	
-
 	public  Adherent mapDtoToEntity(AdherentCreateDTO adherentCreateDto) {
 	
 			Adherent newAdherent = mapper.map(adherentCreateDto, Adherent.class);	
@@ -174,10 +165,6 @@ public class AdherentServiceImpl implements IAdherentService{
 		return newAdherent;
 		
 	}
-
-	
-	
-	
 	
 	
 }

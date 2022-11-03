@@ -1,6 +1,7 @@
 package com.asso.staff.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.asso.staff.dto.AdherentCreateDTO;
 import com.asso.staff.dto.AdherentDTO;
@@ -24,4 +25,7 @@ public interface IAdherentService {
 	AdherentDTO findAdherentById(Long id);
 	
 	AdherentDTO updateAdherent (long adherentId, AdherentCreateDTO adherentCreateDto);
+	
+	Map<String,Boolean> deleteAdherent(long adherentId);
+	
 }

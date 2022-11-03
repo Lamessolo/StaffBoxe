@@ -1,0 +1,147 @@
+<div class="col-md-6 offset-md-3">
+<h2>Create un adherent</h2>
+<form *ngIf="adherent" (ngSubmit)="onSubmit()" #adherentForm="ngForm">
+ <div class="row">
+    <div class="col s12 offset-s2">
+        <div class="card-panel">
+       <div class="row g-3">
+              <div class="form-group col-md-6">
+                     <label for="name">Nom</label>
+                     <input type="text" class="form-control" id="name" 
+                            required 
+                             [(ngModel)]="adherent.name"  name="name">
+                  </div>
+                   <div class="form-group col-md-6">
+                   <label for="prenom">Prenom</label>
+                   <input type="text" class="form-control" id="prenom" 
+                          required 
+                           [(ngModel)]="adherent.prenom" name="prenom" #prenom="ngModel">
+                   </div>
+       </div>
+       <div class="form-group col-12">
+              <label for="dateNaissance">Date de naissance</label>
+              <input type="text" class="form-control" id="dateNaissance" 
+                     required 
+                      [(ngModel)]="adherent.dateNaissance"
+                       name="dateNaissance" #dateNaissance="ngModel">
+          </div>
+            <div class="form-group col-12">
+                <label for="adresse">Adresse</label>
+                <input type="text" class="form-control" id="adresse" 
+                       required 
+                        [(ngModel)]="adherent.adresse" name="adresse" #adresse="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" 
+                       required 
+                        [(ngModel)]="adherent.phone" name="phone" #phone="ngModel"
+                   />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" 
+                       required 
+                        [(ngModel)]="adherent.email" name="email" #email="ngModel"
+                   />
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">Image  Url</label>
+                <input type="text" class="form-control" id="imageUrl" 
+                       required 
+                        [(ngModel)]="adherent.imageUrl" name="imageUrl" #imageUrl="ngModel"
+                   />
+            </div>
+            <div class="form-group">
+                <label for="poid">Poid</label>
+                <input type="number" class="form-control" id="poid" 
+                       required 
+                        [(ngModel)]="adherent.poid" name="poid" #poid="ngModel"
+                   />
+            </div>
+            <div class="form-group">
+                <label for="statut">Statut</label>
+                <input type="text" class="form-control" id="statut" 
+                       required 
+                        [(ngModel)]="adherent.statut" name="statut" #statut="ngModel"
+                   />
+            </div>
+            <div class="form-group">
+       
+            </div>
+            <div class="form-group">
+              <label for="section">Section</label>
+              <select class="form-select form-select-lg mb-3" 
+              aria-label=".form-select-lg example"
+              [(ngModel)]="adherent.section" name="section" #section="ngModel"> 
+                     <option *ngFor="let tempSection of sections" 
+                     value={{tempSection.id}}>{{tempSection.sectionId | uppercase}}</option>           
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="categorie">Categorie</label>      
+                    <select class="form-select form-select-lg mb-3" 
+                    aria-label=".form-select-lg example"
+                    [(ngModel)]="adherent.categorie" name="categorie" #categorie="ngModel"> 
+                           <option *ngFor="let tempCategorie of categories" 
+                           value={{tempCategorie.id}}>{{tempCategorie.name | uppercase}} -- {{tempCategorie.description}}</option>           
+                    </select>
+            </div>
+           
+            <div class="form-group">
+              <label for="sexe">Sexe</label>
+              <select class="form-select form-select-lg mb-3" 
+              aria-label=".form-select-lg example"
+              [(ngModel)]="adherent.sexe" name="sexe" #sexe="ngModel"> 
+                     <option *ngFor="let tempSexe of sexes" 
+                     value={{tempSexe.id}}>{{tempSexe.name}}</option>           
+              </select>
+            </div>  
+                 <!--   <input type="checkbox" value={{tempSexe.id}}
+                     class="form-check-input"
+                      id="tempSexe.name" 
+                 [(ngModel)]="adherent.sexe" name="sexe" #sexe="ngModel">  -->    
+                       
+            <button class="btn btn-success" type="submit">Valider</button>
+        </div>
+    </div>
+ </div>
+</form>
+<form class="row g-3">
+          
+       <div class="col-12">
+         <label for="inputAddress" class="form-label">Address</label>
+         <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+       </div>
+       <div class="col-12">
+         <label for="inputAddress2" class="form-label">Address 2</label>
+         <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+       </div>
+       <div class="col-md-6">
+         <label for="inputCity" class="form-label">City</label>
+         <input type="text" class="form-control" id="inputCity">
+       </div>
+       <div class="col-md-4">
+         <label for="inputState" class="form-label">State</label>
+         <select id="inputState" class="form-select">
+           <option selected>Choose...</option>
+           <option>...</option>
+         </select>
+       </div>
+       <div class="col-md-2">
+         <label for="inputZip" class="form-label">Zip</label>
+         <input type="text" class="form-control" id="inputZip">
+       </div>
+       <div class="col-12">
+         <div class="form-check">
+           <input class="form-check-input" type="checkbox" id="gridCheck">
+           <label class="form-check-label" for="gridCheck">
+             Check me out
+           </label>
+         </div>
+       </div>
+       <div class="col-12">
+         <button type="submit" class="btn btn-primary">Sign in</button>
+       </div>
+     </form>
+</div>

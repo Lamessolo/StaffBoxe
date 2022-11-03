@@ -1,9 +1,9 @@
-<div class="form-header">
-    <input #myInput class="au-input au-input-xl" 
+<div class="d-flex">
+    <input #myInput class="form-control me-2" 
            type="text" 
            placeholder="Search adherent ..."
             (keyup.enter)="doSearch(myInput.value)" />
-    <button class="au-btn-submit" (click)="doSearch(myInput.value)">
+    <button class="btn btn-outline-success" (click)="doSearch(myInput.value)">
         Search
     </button>
 </div>

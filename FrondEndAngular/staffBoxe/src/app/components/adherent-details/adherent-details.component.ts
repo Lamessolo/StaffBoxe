@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Adherent } from 'src/app/common/adherent';
 import { AdherentService } from 'src/app/services/adherent.service';
 
@@ -11,7 +11,8 @@ import { AdherentService } from 'src/app/services/adherent.service';
 export class AdherentDetailsComponent implements OnInit {
 
   adherent! : Adherent;
-  constructor(private adherentService : AdherentService,  private route : ActivatedRoute) { }
+  constructor(private adherentService : AdherentService, 
+              private route : ActivatedRoute, private router : Router) { }
                
   ngOnInit(): void {
     this.route.paramMap.subscribe(()=>{
@@ -31,5 +32,16 @@ export class AdherentDetailsComponent implements OnInit {
 
   }
 
+  goToListAdherent(){
+    this.router.navigate(['/adherents']);
+  }
+
+   delete(adherentId : number):void{
+    this.adherentService.deleteAdherent(adherentId).subscribe(data =>{
+      console.log(data);
+      this.goToListAdherent();
+    },  error =>console.log(error));
+}
+  
 
 }

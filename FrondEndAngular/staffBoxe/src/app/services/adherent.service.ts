@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Adherent } from '../common/adherent';
+import { Pagination } from '../common/pagination';
+import { PaginationParams } from '../common/paginationParams';
 import { Section } from '../common/section';
 
 @Injectable({
@@ -11,13 +13,13 @@ import { Section } from '../common/section';
 export class AdherentService {
 
   private baseUrlAdherent = environment.UrlAdherent;
- 
+  private baseUrlSection = environment.UrlSection;
   
   constructor(private httpClient : HttpClient) { }
 
-  getHome(page :number,size: number,field :string):Observable<Adherent[]>{
-    const searchUrl = `${this.baseUrlAdherent}/all?page=${page}&size=${size}&field=${field}`;
-    return this.httpClient.get<Adherent[]>(searchUrl);
+  getHome():Observable<Pagination>{
+    const searchUrl = `${this.baseUrlAdherent}/all`;
+    return this.httpClient.get<Pagination>(searchUrl);
   }
   getAdherentById(theAdherentId: number):Observable<Adherent>{
   
@@ -33,7 +35,7 @@ export class AdherentService {
   }
 
   getSectionList():Observable<Section[]>{
-    const SectionUrl = `${this.UrlSection}`;
+    const SectionUrl = `${this.baseUrlSection}`;
     return this.httpClient.get<Section[]>(SectionUrl);
   }
 
@@ -42,4 +44,31 @@ export class AdherentService {
     return this.httpClient.get<Adherent[]>(searchUrl);
 
   }
-}
+
+   deleteAdherent(idAdherent:number):Observable<any>{
+    const deleteUrl = `${this.baseUrlAdherent}/delete/${idAdherent}`;
+    const httpOptions ={
+      headers : new HttpHeaders({'Content-Type': 'application/Json'})
+    }
+    return this.httpClient.delete<string>(deleteUrl,httpOptions);
+  }
+  
+  
+  updateAdherent(adherent:Adherent,adherentId:number):Observable<Adherent>{
+    const updateUrl = `${this.baseUrlAdherent}/update/${adherentId}`;
+    const httpOptions ={
+      headers : new HttpHeaders({'Content-Type': 'application/Json'})
+    }
+     return this.httpClient.put<Adherent>(updateUrl,adherent,httpOptions);
+  }
+
+  addAdherent(adherent : Adherent):Observable<Object>{
+    
+    const addUrl = `${this.baseUrlAdherent}/add`;
+    const httpOptions ={
+      headers : new HttpHeaders({'Content-Type': 'application/Json'})
+    }
+   return this.httpClient.post(addUrl,adherent,httpOptions);
+  }
+  }
+
