@@ -22,6 +22,8 @@ public interface IAdherentService {
 	
 	List<AdherentDTO> findAdherentByName(String name);
 	
+	List<AdherentDTO> SearchAdherentByNameOrPrenom(String name);
+	
 	AdherentDTO findAdherentById(Long id);
 	
 	AdherentDTO updateAdherent (long adherentId, AdherentCreateDTO adherentCreateDto);

@@ -88,11 +88,20 @@
                                    />
                             </div>
                             <div class="form-group">
+                                   <label for="sexe">Sexe</label>
+                                   <select class="form-select form-select-lg mb-3" 
+                                   aria-label=".form-select-lg example"
+                                   [(ngModel)]="adherent.sexe" name="sexe" #sexe="ngModel">
+                                          <option *ngFor="let tempSexe of sexes" 
+                                          value={{tempSexe.id}}>{{tempSexe.name}}</option>           
+                                   </select>
+                                 </div>
+                           <!--   <div class="form-group">
                                 <label for="sexe">Sexe</label>
-                                <input type="number" class="form-control" id="sexe"
+                                <input type="text" class="form-control" id="sexe"
                                        required 
-                                    [(ngModel)]="adherent.sexe" name="sexe" #sexe="ngModel">
-                            </div>
+                                    [(ngModel)]="adherent.sexe.name" name="sexe" #sexe="ngModel">
+                            </div> -->
                            
                 
                             <button class="btn btn-success" type="submit">Modifier</button>

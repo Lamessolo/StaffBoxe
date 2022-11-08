@@ -1,13 +1,9 @@
 package com.asso.staff.controller;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
+
 import java.util.Map;
 import java.util.Optional;
->>>>>>> 6b263ed8bb14a9d775c425451022ab2003eb608c
-
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -67,7 +63,7 @@ public class AdherentController {
 	
 	@GetMapping("/search/{name}")
 	public ResponseEntity<List<AdherentDTO>> getAdherentByName(@PathVariable("name") String name){
-		List<AdherentDTO> adherents = adherentService.findAdherentByName(name);
+		List<AdherentDTO> adherents = adherentService.SearchAdherentByNameOrPrenom(name);
 		return new ResponseEntity<>(adherents, HttpStatus.OK);
 		}
 	

@@ -165,6 +165,13 @@ public class AdherentServiceImpl implements IAdherentService{
 		return newAdherent;
 		
 	}
+
+	@Override
+	public List<AdherentDTO> SearchAdherentByNameOrPrenom(String name) {
+		List<Adherent> searchAdherentByName = adherentRepository.SearchByNameOrPrenom(name);
+		List<AdherentDTO> adherents = searchAdherentByName.stream().map(this::mapEntityToDTO).collect(Collectors.toList());
+		return adherents;
+	}
 	
 	
 }
