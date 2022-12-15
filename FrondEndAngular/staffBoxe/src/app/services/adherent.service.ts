@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Adherent } from '../common/adherent';
+import { AdherentUpdate } from '../common/adherentUpdate';
 import { Pagination } from '../common/pagination';
 import { PaginationParams } from '../common/paginationParams';
 import { Section } from '../common/section';
@@ -53,6 +54,27 @@ export class AdherentService {
     return this.httpClient.delete<string>(deleteUrl,httpOptions);
   }
   
+  putUpdateAdherent(adherentId: number, adherent: AdherentUpdate):Observable<Adherent>{
+    const updateUrl = `${this.baseUrlAdherent}/update/${adherentId}`;
+    const httpOptions ={
+      headers : new HttpHeaders({'Content-Type': 'application/Json'})
+    }
+    const updateAdherent : AdherentUpdate = {       
+      name: adherent.name,
+      prenom: adherent.prenom,
+      adresse: adherent.adresse,
+      email: adherent.email,
+      phone: adherent.phone,
+      imageUrl: adherent.imageUrl,
+      statut: adherent.statut,
+      poid: adherent.poid,
+      dateNaissance: adherent.dateNaissance,
+      sexe: adherent.sexe,
+      section: adherent.section,
+      categorie: adherent.categorie
+    }
+     return this.httpClient.put<Adherent>(updateUrl,updateAdherent,httpOptions);
+  }
   
   updateAdherent(adherent:Adherent,adherentId:number):Observable<Adherent>{
     const updateUrl = `${this.baseUrlAdherent}/update/${adherentId}`;

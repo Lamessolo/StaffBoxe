@@ -12,8 +12,9 @@ import { SectionService } from 'src/app/services/section.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  adherents!:Adherent[];
-  section!:Section[] ;
+  adherents:Adherent[]= [];
+  totalAdherent : number|null|undefined ;
+  section:Section[]=[] ;
  
   constructor(private adherentService : AdherentService,
               private sectionService : SectionService,

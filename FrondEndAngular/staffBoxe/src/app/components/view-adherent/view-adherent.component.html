@@ -1,0 +1,140 @@
+<div class="page-header">
+    <div class="container">
+        <h1>View Adherent</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row top-row">
+        <div class="col-xs-12 end-xs">
+                <a routerLink="/adherents" color="primary" mat-raised-button>
+                    <mat-icon>chevron_left</mat-icon>Go Back
+                </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+         <!--  Adherent details  --> 
+     <form #adherentDetailsForm="ngForm">
+        <div class="row">
+            <div class="col-xs-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput [(ngModel)]="adherent.name" name="name">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Prenom</mat-label>
+                        <input type="text" matInput 
+                        [(ngModel)]="adherent.prenom" 
+                        name="prenom">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">               
+                <div class="form-group col-xs-8">
+                    <label for="dateNaissance">Date de Naissance</label>
+                    <input type="date" class="form-control" id="dateNaissance" 
+                        required 
+                    [(ngModel)]="adherent.dateNaissance" name="dateNaissance"
+                        #dateNaissance="ngModel">
+                </div>
+               <!-- <div class="col-xs-8">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Date of Birth</mat-label>
+                            <input matInput [matDatepicker]="picker"
+                            matInput [(ngModel)]="adherent.dateNaissance" name="dateNaissance">           
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>  -->
+                <div class="col-xs-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Statut</mat-label>
+                        <input type="text" matInput  [(ngModel)]="adherent.statut" name="statut">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input type="text" matInput  [(ngModel)]="adherent.email" name="email">
+                    </mat-form-field>
+                </div>
+                <div class="col-xs-5">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Mobile</mat-label>
+                        <input type="number" matInput [(ngModel)]="adherent.phone" name="phone">
+                    </mat-form-field>
+                </div>
+                <div class="col-xs-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Poid</mat-label>
+                        <input type="number" matInput [(ngModel)]="adherent.poid" name="poid">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Adresse</mat-label>
+                        <input type="text" matInput [(ngModel)]="adherent.adresse" name="adresse">
+                    </mat-form-field>
+                </div>              
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Sexe</mat-label>
+                        <mat-select [(ngModel)]="adherent.sexe.id" name="sexe">
+                            <mat-option *ngFor="let sexe of sexes" [value]="sexe.id" >
+                                {{sexe.name}}
+                            </mat-option>
+                        </mat-select>                      
+                    </mat-form-field>
+                </div>
+                <div class="col-xs-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Section</mat-label>
+                        <mat-select [(ngModel)]="adherent.section.id" name="section">
+                            <mat-option *ngFor="let section of sections" [value]="section.id" >
+                                {{section.sectionId}}
+                            </mat-option>
+                        </mat-select>        
+                    </mat-form-field>
+                </div>                       
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Image Url</mat-label>
+                        <input type="text" matInput [(ngModel)]="adherent.imageUrl" name="imageUrl">
+                    </mat-form-field>
+                </div>              
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Categorie</mat-label>
+                        <mat-select [(ngModel)]="adherent.categorie.id" name="categorie">
+                            <mat-option *ngFor="let categorie of categories" [value]="categorie.id" >
+                                {{categorie.name}}
+                            </mat-option>
+                        </mat-select>  
+                    </mat-form-field>
+                </div>              
+            </div>           
+            <div class="row">
+                <div class="col-xs-12">
+                    <button mat-raised-button color="primary" (click)="onUpdate()">Save</button>
+                </div>
+            </div>            
+     </form>      
+        </div>
+        <div class="col-xs-6">
+        <!--  Profile image  -->   
+        </div>
+    </div>
+</div>

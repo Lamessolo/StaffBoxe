@@ -1,6 +1,6 @@
-export class Sexe {
+export interface Sexe {
 
-    constructor( ){}
-     id!: number;	
-     name! :string;
+    
+     id: number;	
+     name :string;
 }

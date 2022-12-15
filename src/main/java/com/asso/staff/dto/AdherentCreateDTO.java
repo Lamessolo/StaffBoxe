@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-import com.asso.staff.entity.Adherent;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,9 +21,17 @@ public class AdherentCreateDTO  implements Serializable{
 
 	private long id;
 	private String AdherentId;
+	
+	@NotEmpty
+	@Size(min=2, message="Adherent name should have at least 2 characters")
 	private String name;
+	
+	@NotEmpty
+	@Size(min=2, message=" Adherent firstname should have at least 2 characters")
 	private String prenom;
-	private String adresse;			
+	
+	private String adresse;
+	
 	private String email;
 	private String phone;
 	private Date dateNaissance;

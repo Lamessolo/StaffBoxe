@@ -33,6 +33,7 @@ export class AdherentEditComponent implements OnInit {
     this.loadAdherent();
     this.loadSections();
     this.loadSexes();
+    this.loadCategories();
   }
 
   loadAdherent(){
@@ -51,6 +52,11 @@ export class AdherentEditComponent implements OnInit {
   this.sexes = data;
  })
   }
+  loadCategories(){
+    this.categorieService.getCategorieList().subscribe(data =>{
+     this.categories = data;
+    })
+     }
 
   goToAdherentDetail(){
     const theAdherentId : number = +this.route.snapshot.paramMap.get('id')!;
@@ -58,10 +64,10 @@ this.router.navigate(['/adherent/'+ theAdherentId])
   }
 
   onSubmit():void {
-    console.log();
     const theAdherentId : number = +this.route.snapshot.paramMap.get('id')!;
     this.adherentService.updateAdherent(this.adherent,theAdherentId).subscribe(
       data=>{
+        console.log(this.adherent)
         this.goToAdherentDetail();
       }, error => console.log(error));
   }

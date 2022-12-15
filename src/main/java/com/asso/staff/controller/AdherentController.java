@@ -4,6 +4,8 @@ import java.util.List;
 
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -67,15 +69,15 @@ public class AdherentController {
 		return new ResponseEntity<>(adherents, HttpStatus.OK);
 		}
 	
-	@PostMapping("/add")
-	public ResponseEntity<AdherentDTO> addAdherent(@RequestBody AdherentCreateDTO adherentCreateDto){
+	@PostMapping(value ={"/add"})
+	public ResponseEntity<AdherentDTO> addAdherent(@Valid @RequestBody AdherentCreateDTO adherentCreateDto){
 		
 		AdherentDTO newAdherent = adherentService.createAdherent(adherentCreateDto);
 		return new ResponseEntity<>(newAdherent, HttpStatus.CREATED);	
 	}
 		
 	@PutMapping("update/{id}")
-	public ResponseEntity<AdherentDTO> updateAdherent(@PathVariable("id") long id,@RequestBody AdherentCreateDTO adherentCreateDto){
+	public ResponseEntity<AdherentDTO> updateAdherent(@Valid @PathVariable("id") long id,@RequestBody AdherentCreateDTO adherentCreateDto){
 		AdherentDTO updatedAdherent =  adherentService.updateAdherent(id,adherentCreateDto);		 
 		return new ResponseEntity<>(updatedAdherent,HttpStatus.OK);
 		

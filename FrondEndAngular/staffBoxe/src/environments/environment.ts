@@ -5,21 +5,23 @@
 export const environment = {
   production: false,
 
-//  UrlAdherent: "http://localhost:8080/api/adherent",
+  UrlAdherent: "http://localhost:8080/api/adherent",
 
-//   UrlSection: "http://localhost:8080/api/section/all",
+   UrlSection: "http://localhost:8080/api/section/all",
 
-//   UrlSexe: "http://localhost:8080/api/sexe",
+   UrlSexe: "http://localhost:8080/api/sexe",
 
-//   UrlCategorie: "http://localhost:8080/api/categorie"
+   UrlCategorie: "http://localhost:8080/api/categorie",
 
-  UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
+   UrlPost : "http://localhost:8080/api/post"
 
-  UrlSection: "https://managerstaffboxe.herokuapp.com/api/section/all",
+//  UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
 
-  UrlSexe: "https://managerstaffboxe.herokuapp.com/api/sexe",
+ // UrlSection: "https://managerstaffboxe.herokuapp.com/api/section/all",
 
-  UrlCategorie: "https://managerstaffboxe.herokuapp.com/api/categorie"
+///  UrlSexe: "https://managerstaffboxe.herokuapp.com/api/sexe",
+
+//  UrlCategorie: "https://managerstaffboxe.herokuapp.com/api/categorie"
 };
 
 /*
