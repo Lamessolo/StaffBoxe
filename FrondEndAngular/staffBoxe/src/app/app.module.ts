@@ -14,7 +14,6 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbModule,NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdherentEditComponent } from './components/adherent-edit/adherent-edit.component';
 import { SectionListComponent } from './components/section-list/section-list.component';
-import { AdherentAddComponent } from './components/adherent-add/adherent-add.component';
 import { AdherentFormComponent } from './components/adherent-form/adherent-form.component';
 import{  FormsModule}  from '@angular/forms';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
@@ -67,7 +66,6 @@ import { ViewPostComponent } from './components/view-post/view-post.component';
 
 const routes :Routes = [
   {path:"adherent/edit/:id", component:AdherentEditComponent},
-  {path:"adherent/add", component:AdherentAddComponent},
   {path:"adherent/forms", component:AdherentFormComponent},
   {path:"adherents/:id", component:ViewAdherentComponent},
   {path:"home", component:HomeComponent},
@@ -94,7 +92,6 @@ const routes :Routes = [
     NavBarComponent,
     AdherentEditComponent,
     SectionListComponent,
-    AdherentAddComponent,
     AdherentFormComponent,
     PostsComponent,
     ViewAdherentComponent,
