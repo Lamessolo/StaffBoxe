@@ -60,7 +60,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { BlogsComponent } from './components/blogs/blogs.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { ViewAdherentComponent } from './components/view-adherent/view-adherent.component';
 import { ViewPostComponent } from './components/view-post/view-post.component';
@@ -97,7 +96,6 @@ const routes :Routes = [
     SectionListComponent,
     AdherentAddComponent,
     AdherentFormComponent,
-    BlogsComponent,
     PostsComponent,
     ViewAdherentComponent,
     ViewPostComponent
