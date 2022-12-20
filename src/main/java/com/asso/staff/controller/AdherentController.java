@@ -37,6 +37,7 @@ public class AdherentController {
 	
 		
 	@GetMapping("/all")
+	//@GetMapping
 	public PageAdherentResponse getAllAdherents(
 			@RequestParam(value="pageNo",defaultValue= ConstanteApp.DEFAULT_PAGE_NUMEBR,required=false) int pageNo,
 			@RequestParam(value="pageSize",defaultValue= ConstanteApp.DEFAULT_PAGE_SIZE,required=false) int pageSize,

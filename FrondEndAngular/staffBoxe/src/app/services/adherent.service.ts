@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { Adherent } from '../common/adherent';
 import { AdherentUpdate } from '../common/adherentUpdate';
 import { Pagination } from '../common/pagination';
-import { PaginationParams } from '../common/paginationParams';
 import { Section } from '../common/section';
 
 @Injectable({
@@ -15,7 +14,7 @@ export class AdherentService {
 
   private baseUrlAdherent = environment.UrlAdherent;
   private baseUrlSection = environment.UrlSection;
-  
+  private baseUrlFile = environment.UrlFile;
   constructor(private httpClient : HttpClient) { }
 
   getHome():Observable<Pagination>{
@@ -59,7 +58,8 @@ export class AdherentService {
     const httpOptions ={
       headers : new HttpHeaders({'Content-Type': 'application/Json'})
     }
-    const updateAdherent : AdherentUpdate = {       
+    const updateAdherent : AdherentUpdate = { 
+      id  : adherent.id,    
       name: adherent.name,
       prenom: adherent.prenom,
       adresse: adherent.adresse,
@@ -76,7 +76,7 @@ export class AdherentService {
      return this.httpClient.put<Adherent>(updateUrl,updateAdherent,httpOptions);
   }
   
-  updateAdherent(adherent:Adherent,adherentId:number):Observable<Adherent>{
+  updateAdherent(adherent:AdherentUpdate,adherentId:number):Observable<Adherent>{
     const updateUrl = `${this.baseUrlAdherent}/update/${adherentId}`;
     const httpOptions ={
       headers : new HttpHeaders({'Content-Type': 'application/Json'})
@@ -92,5 +92,22 @@ export class AdherentService {
     }
    return this.httpClient.post(addUrl,adherent,httpOptions);
   }
+
+  uploadImage(adherentId: number,file:File ):Observable<any>{
+      const formData = new FormData();
+      formData.append("profileImage", file);
+    return  this.httpClient.post(this.baseUrlFile+ '/'+ adherentId,
+          formData,{
+            responseType:'text'            
+          });
   }
+
+/*  getImagePath(relativePath: string){
+    return ` https://localhost:5001/${relativePath}`;
+  }
+  */
+}
+
+ 
+  
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/common/post';
+import { PostUpdate } from 'src/app/common/postUpdate';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -11,12 +12,12 @@ import { PostService } from 'src/app/services/post.service';
 export class ViewPostComponent implements OnInit {
 
   postId : number| null | undefined;
-  post : Post ={
+  post : PostUpdate ={
     id: 0,
     titre: '',
     description: '',
     content: '',
-    publicationDate: '2022-09-12',
+    publicationDate: Date(),
     imagePostUrl: ''
   }
   constructor(private readonly postService : PostService, 

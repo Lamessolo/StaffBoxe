@@ -1,0 +1,129 @@
+<div class="page-header">
+    <div class="container">
+   <h1>{{header}}</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row top-row">
+        <div class="col-xs-12 end-xs">
+                <a routerLink="/adherent" color="primary" mat-raised-button>
+                        <mat-icon>chevron_left</mat-icon> Go Back
+                </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+    <!--  adherent Details-->
+    <form #adherentDetailsForm="ngForm">
+        <div class="row">
+            <div class="col-xs-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fisrt Name</mat-label>
+                    <input type="text" matInput [(ngModel)]="adherent.firstName" name="firstName"
+                     required>
+                     <mat-error>First Name is a required field</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-xs-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input type="text" matInput [(ngModel)]="adherent.lastName" name="lastName"
+                    required>
+                    <mat-error>Last Name is a required field</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <mat-form-field appearance="fill">
+                    <mat-label>Date Of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="adherent.dateOfBirth" name="dateOfBirth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput [(ngModel)]="adherent.email" name="email">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Mobile</mat-label>
+                    <input type="number" matInput [(ngModel)]="adherent.mobile" name="mobile" >
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender</mat-label>
+                   <mat-select [(ngModel)]="adherent.genderId" name="gender">
+                    <mat-option *ngFor="let gender of genderList" [value]="gender.id">
+                        {{gender.description}}
+                    </mat-option>
+                   </mat-select>
+                    <!-- <input type="text" matInput [(ngModel)]="adherent.gender.description" name="gender">-->
+                </mat-form-field>
+            </div>
+            <div class="col-xs-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Poid</mat-label>
+                    <input type="number" matInput [(ngModel)]="adherent.poid" name="poid" >  
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Physical Adresse</mat-label>                  
+                    <textarea matInput [(ngModel)]="adherent.adresse.physicalAdresse" name="physicalAdress"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Postal Adresse</mat-label>                  
+                    <input type="text" matInput [(ngModel)]="adherent.adresse.postalAdresse" name="postalAdress">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row between-xs" *ngIf="!isNewAdherent">
+                    <button mat-raised-button color="primary" 
+                    (click)="onUpdate()">Save</button>
+                    <button mat-raised-button color="warn" 
+                    (click)="onDelete()">Delete</button>
+                </div>
+                <div class="row between-xs" *ngIf="isNewAdherent">
+                    <button mat-raised-button color="primary" 
+                    (click)="onAdd()">Add</button>
+                </div>
+               
+            </div>
+        </div>
+    </form>
+        </div>
+        <div class="col-xs-6">
+    <!-- profile image-->
+    <div class="row center-xs">
+        <div class="image-container">
+            <img class="profile-picture" [src]="displayProfileImageUrl" alt="Profile image"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <input hidden type="file" #imageUpload (change)="uploadImage($event)">
+            <button mat-raised-button color="primary" (click)="imageUpload.click()">
+                Change Image
+            </button>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>

@@ -31,12 +31,13 @@ export class PostService {
     }
      return this.httpClient.put<Post>(updateUrl,post,httpOptions);
   }
-  
-  updatePost(adherent:Post,postId:number):Observable<Post>{
+  /*
+  updatePost(post:Post,postId:number):Observable<Post>{
     const updateUrl = `${this.baseUrlPost}/${postId}`;
     const httpOptions ={
       headers : new HttpHeaders({'Content-Type': 'application/Json'})
     }
-     return this.httpClient.put<Post>(updateUrl,adherent,httpOptions);
+     return this.httpClient.put<Post>(updateUrl,post,httpOptions);
   }
+  */
 }

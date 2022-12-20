@@ -51,8 +51,9 @@ export class ViewAdherentComponent implements OnInit {
     description : ''
    }
  }
- 
+ displayProfileImageUrl='assets/images/staffboxe.png';
  adherentUpdate : AdherentUpdate ={ 
+   id: 0,
    name: '',
    prenom: '',
    adresse: '',
@@ -108,6 +109,33 @@ export class ViewAdherentComponent implements OnInit {
   }    
 
   onUpdate():void{
-    console.log(this.adherent)
       }
+
+  
+/* Une fonction pour upload l'image en recuperant et modifiant imageUrl */
+      uploadImage(event :any ):void{
+        this.adherentId = +this.route.snapshot.paramMap.get('id')!;
+        if(this.adherentId){
+          const file: File = event.target.files[0];
+          this.adherentService.uploadImage(this.adherentId,file)
+          .subscribe((successResponse)=>{
+            this.adherent.imageUrl = successResponse.fileName;
+            this.setImage();
+            //Show une notification
+          /*  this.snackbar.open('Profile Image Updated', undefined,{duration:2000})*/
+          }) 
+        }
+    }
+  
+    private setImage():void{
+  if(this.adherent.imageUrl){
+    // Fetch the image by url
+  this.displayProfileImageUrl= this.adherent.imageUrl;
+  }
+  else{
+    // display a default
+    this.displayProfileImageUrl;
+  }
+ 
+}
 }

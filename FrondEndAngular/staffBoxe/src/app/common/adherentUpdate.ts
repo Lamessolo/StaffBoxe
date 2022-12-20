@@ -1,4 +1,5 @@
 export interface AdherentUpdate{
+    id: number,
      name: string;
      prenom: string;
     adresse: string;
@@ -8,8 +9,8 @@ export interface AdherentUpdate{
     statut: string;
     poid: number;
     dateNaissance : Date;
-     /*public dateCreation: Date;
-     public dateUpdate: Date;*/
+    /*public dateCreation: Date;
+    public dateUpdate: Date;*/
     sexe: number;
     section: number;
     categorie: number;
