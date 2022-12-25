@@ -2,7 +2,7 @@ export interface Post{
     id : number;
     titre: string;	
 	description: string;		
-    publicationDate : string;	
+    publicationDate : Date;	
 	content: string;	
 	imagePostUrl: string;
 }

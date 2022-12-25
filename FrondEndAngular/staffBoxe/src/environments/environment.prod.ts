@@ -1,15 +1,19 @@
 export const environment = {
   production: true,
+  UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
 
- // UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
+  UrlSection: "https://managerstaffboxe.herokuapp.com/api/section/all",
 
- // UrlSection: "https://managerstaffboxe.herokuapp.com/api/section/all",
+  UrlFile: "https://managerstaffboxe.herokuapp.com/api/file/upload",
 
- // UrlSexe: "https://managerstaffboxe.herokuapp.com/api/sexe",
-//  UrlCategorie: "https://managerstaffboxe.herokuapp.com/api/categorie",
+  UrlSexe: "https://managerstaffboxe.herokuapp.com/api/sexe",
+  UrlCategorie: "https://managerstaffboxe.herokuapp.com/api/categorie",
 
- // UrlPost : "https://managerstaffboxe.herokuapp.com/api/post"
+  UrlPost : "https://managerstaffboxe.herokuapp.com/api/post",
+
+  UrlUser : "https://managerstaffboxe.herokuapp.com/api/user"
    
+ /*
  UrlAdherent: "http://localhost:8080/api/adherent",
 
    UrlSection: "http://localhost:8080/api/section/all",
@@ -20,6 +24,8 @@ export const environment = {
 
    UrlPost : "http://localhost:8080/api/post",
    
-   UrlFile: "http://localhost:8080/api/file/upload"
- 
+   UrlFile: "http://localhost:8080/api/file/upload",
+
+   UrlUser : "http://localhost:8080/api/user"
+ */
 };

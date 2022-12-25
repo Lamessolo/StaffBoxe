@@ -1,8 +1,8 @@
-export interface PostUpdate{
-    id : number;	
+export interface PostUpdate{  
+
     titre: string;		
 	description: string;		
-    publicationDate : string;	
+    publicationDate : Date;	
 	content: string;	
 	imagePostUrl: string;
 }

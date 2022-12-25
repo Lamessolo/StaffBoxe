@@ -1,19 +1,29 @@
-<div>
-    <div class="row row-cols-1 row-cols-md-4 mb-4 text-center" >
-        <div class="col" *ngFor="let section of sections">
-            <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                <div class="card-header py-3 border-primary">
-                  <h4 class="my-0 fw-normal">{{section.name}}</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title">{{section.tarif}} €/<small class="text-muted fw-light">année</small></h1>
-                  <ul class="list-unstyled">
-                    <li>{{section.description}}</li>                   
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-                </div>
+<div class="container ">
+      <div class="row">
+        <div class="col-sm-4 mt-1 ml-1" *ngFor="let section of sections">
+          <div class="card border-warn">
+              <div class="card-header py-3 border-primary">
+                <h4 class="my-0 fw-normal">{{section.name}}</h4>
               </div>
-        </div>
+
+              <div class="card-body">
+                <div class="thumbnail">
+                  <a href="">
+                    <img class="text-center img-rounded"
+                    src="assets/images/staffboxe.png" alt="imageSection" style="width:50%">
+                  </a>
+                </div>
+               
+              <!--  <h1 class="card-title">{{section.tarif}} €/<small class="text-muted fw-light">année</small></h1>--> 
+                <ul class="text-center">
+                  <li>{{section.description}}</li>                   
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-primary">Souscrire</button>
+              </div>
+            </div>
+           
+     
+      </div>
         
   </div>
 </div>

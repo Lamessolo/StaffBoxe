@@ -1,8 +1,5 @@
-<div class="page-header">
-<div class="container">
-    <h1>Actualités</h1>
-</div>
-</div>
+<app-info></app-info>
+
 <div class="container">
 <div class="mt-1">
   <div class="row end-xs mt-1">
@@ -10,6 +7,9 @@
   <input type="text" class="search-input" placeholder="search post"
    [(ngModel)]="filterString"
    (keyup)="filterPosts()">
+   <a routerLink="/post/add" 
+   mat-raised-button color="primary" 
+   class="ml-1">Add new Post</a>
     </div>
       </div>
     <table mat-table matSort [dataSource]="dataSource" class="">

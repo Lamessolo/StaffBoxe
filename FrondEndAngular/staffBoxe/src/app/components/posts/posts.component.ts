@@ -44,4 +44,6 @@ export class PostsComponent implements OnInit {
   filterPosts(){
     this.dataSource.filter =this.filterString.trim().toLowerCase()
   }
+
+  
 }

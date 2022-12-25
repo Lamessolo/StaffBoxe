@@ -38,7 +38,12 @@ public class Section implements Serializable {
 	
 	@Column(name="tarif")
 	private BigDecimal tarif;
+		
+	@Column(name="imageUrl_Section")
+	private String imageUrl;
 	
+	@Column(name="content")
+	private String content;
 	
 	
 }

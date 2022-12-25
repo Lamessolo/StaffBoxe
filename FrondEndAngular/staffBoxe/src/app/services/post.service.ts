@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Post } from '../common/post';
+import { PostAdd } from '../common/postAdd';
 import { PostUpdate } from '../common/postUpdate';
 
 @Injectable({
@@ -24,20 +25,42 @@ export class PostService {
     return this.httpClient.get<Post>(searchUrl);
   }
 
-  putUpdatePost(postId: number, post: PostUpdate):Observable<Post>{
+  putUpdatePost(postId: number, post: Post):Observable<Post>{
     const updateUrl = `${this.baseUrlPost}/${postId}`;
     const httpOptions ={
       headers : new HttpHeaders({'Content-Type': 'application/Json'})
     }
-     return this.httpClient.put<Post>(updateUrl,post,httpOptions);
+    const updatePost : PostUpdate = { 	
+    titre : post.titre,		
+    description: post.description,		
+    publicationDate : post.publicationDate,
+    content: post.content,	
+    imagePostUrl: post.imagePostUrl
+    }
+
+     return this.httpClient.put<Post>(updateUrl,updatePost,httpOptions);
   }
-  /*
-  updatePost(post:Post,postId:number):Observable<Post>{
-    const updateUrl = `${this.baseUrlPost}/${postId}`;
+  
+  postDeletePost(idPost: number){
+    const deleteUrl = `${this.baseUrlPost}/${idPost}`;
     const httpOptions ={
       headers : new HttpHeaders({'Content-Type': 'application/Json'})
     }
-     return this.httpClient.put<Post>(updateUrl,post,httpOptions);
+    return this.httpClient.delete<string>(deleteUrl,httpOptions);
   }
-  */
+
+  addPost(post : Post):Observable<Post>{
+    const addUrl = `${this.baseUrlPost}`;
+    const httpOptions ={
+      headers : new HttpHeaders({'Content-Type': 'application/Json'})
+    }
+    const addPost : PostAdd = {    
+      titre: post.titre,
+      description: post.description,
+      publicationDate: post.publicationDate,
+      content: post.content,
+      imagePostUrl: post.imagePostUrl      
+    }
+   return this.httpClient.post<Post>(addUrl,addPost,httpOptions);
+  }
 }

@@ -28,5 +28,7 @@ public class SectionDTO implements Serializable {
 	private String description;
 	private String name;
 	private BigDecimal tarif;
+	private String imageUrl;
+	private String content;
 	
 }

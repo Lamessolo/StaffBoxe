@@ -12,8 +12,12 @@
     margin: 0;
 }
 .mt-1{
-   margin-top: 2em; 
+   margin-top: 1em !important; 
 }
+
+.ml-1{
+    margin-left: 1em !important; 
+ }
 
 
 

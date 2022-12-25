@@ -3,4 +3,17 @@
     }
 .mat-form-field{
         width: 100%;
-    }
+}
+.jumbotron {
+    background-color: #ffffcc;
+    height: 150px;
+  }
+  .jumbotron h1 {
+    text-align: center;
+    color: #006699;
+    margin-top: 1em;
+  }
+  .jumbotron p {
+    text-align: center;
+    color: black;
+  }

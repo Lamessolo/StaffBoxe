@@ -1,12 +1,10 @@
-<div class="page-header">
-    <div class="container">
-        <h1>View Adherent</h1>
-    </div>
-</div>
+<app-info></app-info>
 
 <div class="container">
     <div class="row top-row">
+        <h1><p>{{header}}</p></h1>
         <div class="col-xs-12 end-xs">
+            
                 <a routerLink="/adherents" color="primary" mat-raised-button>
                     <mat-icon>chevron_left</mat-icon>Go Back
                 </a>
@@ -16,7 +14,7 @@
         <div class="col-xs-6">
          <!--  Adherent details  --> 
      <form #adherentDetailsForm="ngForm">
-        <div class="row">
+            <div class="row">
             <div class="col-xs-6">
                 <mat-form-field appearance="fill">
                     <mat-label>Name</mat-label>
@@ -30,7 +28,7 @@
                         [(ngModel)]="adherent.prenom" 
                         name="prenom">
                     </mat-form-field>
-                </div>
+            </div>
             </div>
             <div class="row">               
                 <div class="form-group col-xs-8">
@@ -127,13 +125,23 @@
                 </div>              
             </div>           
             <div class="row">
-                <div class="col-xs-12">
-                    <button mat-raised-button color="primary" (click)="onUpdate()">Save</button>
+                <div class="text-center col-xs-12">
+                    <!--  Montrer cette ligne si adherent existant-->
+                    <div class="between-xs" *ngIf="!isNewAdherent">
+                        <button mat-raised-button color="primary" 
+                        (click)="onUpdate()">Save</button>
+                        <button mat-raised-button color="warn" 
+                        (click)="onDelete()">Delete</button>
+                    </div> 
+                    <div class="text-center col-xs-12" *ngIf="isNewAdherent">
+                        <button mat-raised-button color="primary" 
+                        (click)="onAdd()">Add</button>
+                    </div>                                        
                 </div>
             </div>            
      </form>      
         </div>
-<div class="col-xs-6">
+        <div class="col-xs-6">
         <!--  Profile image  -->   
         <div class="row center-xs">
                 <div class="image-container">

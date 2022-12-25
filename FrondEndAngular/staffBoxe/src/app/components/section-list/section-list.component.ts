@@ -11,6 +11,7 @@ import { SectionService } from 'src/app/services/section.service';
 export class SectionListComponent implements OnInit {
 
   sections : Section[] = [];
+  displaySectionImageUrl='assets/images/staffboxe.png';
   constructor(private sectionService : SectionService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Adherent } from '../common/adherent';
+import { AdherentAdd } from '../common/adherentAdd';
 import { AdherentUpdate } from '../common/adherentUpdate';
 import { Pagination } from '../common/pagination';
 import { Section } from '../common/section';
@@ -26,7 +27,7 @@ export class AdherentService {
     const searchUrl = `${this.baseUrlAdherent}/${theAdherentId}`;
     return this.httpClient.get<Adherent>(searchUrl);
   }
-
+  
   getAdherentList(theSectionId : number):Observable<Adherent[]>{
 
     const searchUrl = `${this.baseUrlAdherent}/section/${theSectionId}`;
@@ -53,13 +54,12 @@ export class AdherentService {
     return this.httpClient.delete<string>(deleteUrl,httpOptions);
   }
   
-  putUpdateAdherent(adherentId: number, adherent: AdherentUpdate):Observable<Adherent>{
+  putUpdateAdherent(adherentId: number, adherent: Adherent):Observable<Adherent>{
     const updateUrl = `${this.baseUrlAdherent}/update/${adherentId}`;
     const httpOptions ={
       headers : new HttpHeaders({'Content-Type': 'application/Json'})
     }
-    const updateAdherent : AdherentUpdate = { 
-      id  : adherent.id,    
+    const updateAdherent : AdherentUpdate = {    
       name: adherent.name,
       prenom: adherent.prenom,
       adresse: adherent.adresse,
@@ -69,28 +69,35 @@ export class AdherentService {
       statut: adherent.statut,
       poid: adherent.poid,
       dateNaissance: adherent.dateNaissance,
-      sexe: adherent.sexe,
-      section: adherent.section,
-      categorie: adherent.categorie
+      sexe: adherent.sexe.id,
+      section: adherent.section.id,
+      categorie: adherent.categorie.id
     }
+
      return this.httpClient.put<Adherent>(updateUrl,updateAdherent,httpOptions);
   }
   
-  updateAdherent(adherent:AdherentUpdate,adherentId:number):Observable<Adherent>{
-    const updateUrl = `${this.baseUrlAdherent}/update/${adherentId}`;
-    const httpOptions ={
-      headers : new HttpHeaders({'Content-Type': 'application/Json'})
-    }
-     return this.httpClient.put<Adherent>(updateUrl,adherent,httpOptions);
-  }
-
-  addAdherent(adherent : Adherent):Observable<Object>{
+  addAdherent(adherent : Adherent):Observable<Adherent>{
     
     const addUrl = `${this.baseUrlAdherent}/add`;
     const httpOptions ={
       headers : new HttpHeaders({'Content-Type': 'application/Json'})
     }
-   return this.httpClient.post(addUrl,adherent,httpOptions);
+    const addAdherent : AdherentAdd = {    
+      name: adherent.name,
+      prenom: adherent.prenom,
+      adresse: adherent.adresse,
+      email: adherent.email,
+      phone: adherent.phone,
+      imageUrl: adherent.imageUrl,
+      statut: adherent.statut,
+      poid: adherent.poid,
+      dateNaissance: adherent.dateNaissance,
+      sexe: adherent.sexe.id,
+      section: adherent.section.id,
+      categorie: adherent.categorie.id
+    }
+   return this.httpClient.post<Adherent>(addUrl,addAdherent,httpOptions);
   }
 
   uploadImage(adherentId: number,file:File ):Observable<any>{

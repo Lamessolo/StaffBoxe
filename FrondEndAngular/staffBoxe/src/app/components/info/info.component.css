@@ -1,0 +1,19 @@
+.jumbotron {
+    background-color: #ffffcc;
+    height: 150px;
+  }
+  .jumbotron h1 {
+    text-align: center;
+    color: #006699;
+  }
+  .jumbotron p {
+    text-align: center;
+    color: black;
+}
+.fas {
+ font-size: 24px;
+}
+.titre{
+    font-family: Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
+}
