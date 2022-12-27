@@ -3,12 +3,13 @@ package com.asso.staff.serviceImpl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import com.asso.staff.dto.AdherentDTO;
+
 import com.asso.staff.dto.SectionDTO;
-import com.asso.staff.entity.Adherent;
 import com.asso.staff.entity.Section;
+import com.asso.staff.exception.ResourceNotFoundException;
 import com.asso.staff.exception.UserNotFoundException;
 import com.asso.staff.repository.SectionRepository;
 
@@ -19,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class SectionServiceImpl {
 
 	private final SectionRepository sectionRepo;
-	
+	private final ModelMapper mapper;
 	
      public List<SectionDTO> getAllSection (){
 		
@@ -39,8 +40,8 @@ public class SectionServiceImpl {
 			return mapEntityToDTO(section);
 	} 
 		
-	 /* A partir d'une section entité je recupere un sectionDTO */
-		public static SectionDTO mapEntityToDTO(Section section) {
+	 /* A partir d'une section entité je recupere un sectionDTO 
+	 public static SectionDTO mapEntityToDTO(Section section) {
 			
 			if(section == null) {
 				return null;
@@ -55,9 +56,10 @@ public class SectionServiceImpl {
 					.build();
 									
 		}
+		*/
 	
-		/* A partir d'un sectionDTO  je recupere une section entité */
-		public  Section  mapDtoToEntity(long sectionDto) {
+	/* A partir d'un sectionDTO  je recupere une section entité 
+	 public  Section  mapDtoToEntity(long sectionDto) {
 			boolean existSection = false;
 			Section section = null ;
 			if(sectionDto == 0) {return null;}
@@ -68,7 +70,38 @@ public class SectionServiceImpl {
 			}
 								
 			return section;
+	}*/
+	 
+	 public SectionDTO updateSection(long sectionId, SectionDTO sectionDto) {
+			
+					Section section = sectionRepo.findById(sectionId)
+							.orElseThrow(()-> new ResourceNotFoundException("Section","sectionId", sectionId));
+					section.setName(sectionDto.getName());	
+					section.setSectionId(sectionDto.getSectionId());
+					section.setDescription(sectionDto.getDescription());
+					section.setContent(sectionDto.getContent());
+					section.setImageUrl(sectionDto.getImageUrl());
+					section.setTarif(sectionDto.getTarif());				
+					Section sectionUpdated = sectionRepo.save(section);
+					
+					
+					return mapEntityToDTO(sectionUpdated);
+		}
+	
+	 private SectionDTO mapEntityToDTO(Section section) {
+			
+		 SectionDTO sectionDto = mapper.map(section, SectionDTO.class);
+	
+		return sectionDto;			
 	}
 	
+	public  Section mapDtoToEntity(SectionDTO sectionDto) {
+	
+			Section newSection = mapper.map(sectionDto, Section.class);	
+	     
+		return newSection;
 		
+	}
+	 
+	 
 }

@@ -1,6 +1,6 @@
 <div class="container ">
       <div class="row">
-        <div class="col-sm-4 mt-1 ml-1" *ngFor="let section of sections">
+        <div class="col-sm-4 mt-1 ml-1 text-center" *ngFor="let section of sections">
           <div class="card border-warn">
               <div class="card-header py-3 border-primary">
                 <h4 class="my-0 fw-normal">{{section.name}}</h4>
@@ -18,14 +18,18 @@
                 <ul class="text-center">
                   <li>{{section.description}}</li>                   
                 </ul>
-                <button type="button" class="w-100 btn btn-lg btn-primary">Souscrire</button>
-              </div>
-            </div>
-           
-     
+        <div class=""> 
+          <a [routerLink]="['/section',section.id]">
+          <mat-icon color="warn">+ d'infos</mat-icon>
+        </a>  
+          <button (click)="addToCart(section)"
+          type="button" 
+          class="btn btn-lg btn-primary">Souscrire</button>
+        </div>                    
       </div>
-        
   </div>
+</div>        
+</div>
 </div>
 
 

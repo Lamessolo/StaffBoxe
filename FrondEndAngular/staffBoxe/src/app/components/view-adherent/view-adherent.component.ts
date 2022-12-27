@@ -46,7 +46,9 @@ export class ViewAdherentComponent implements OnInit {
    sectionId :'',
    description : '',
    name : '' ,
-   tarif : 0
+   tarif : 0,
+   imageUrl:'',
+   content:''
    },
    categorie: {
     id: 0,	
@@ -57,7 +59,7 @@ export class ViewAdherentComponent implements OnInit {
  
  isNewAdherent = true;
  header = '';
- displayProfileImageUrl='assets/images/staffboxe.png';
+ displayProfileImageUrl='assets/images/staff.jpg';
  
   constructor(private readonly adherentService: AdherentService,
               private readonly sexeService: SexeService,
@@ -68,7 +70,6 @@ export class ViewAdherentComponent implements OnInit {
       private readonly route: ActivatedRoute) { }
 
   ngOnInit(): void { 
-  
      this.adherentId = this.route.snapshot.paramMap.get('id')!;
       if(this.adherentId){     
         //If the route contains the 'Add'

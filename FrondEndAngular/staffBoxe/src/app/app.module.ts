@@ -53,9 +53,12 @@ import { AdherentsComponent } from './components/adherents/adherents.component';
 import { InfoComponent } from './components/info/info.component';
 import { UsersComponent } from './components/users/users.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { SectionDetailsComponent } from './components/section-details/section-details.component';
 
 
 const routes :Routes = [
+  {path:"section/:id", component:SectionDetailsComponent},
   {path:"users", component:UsersComponent},
   {path:"user/:id", component:ViewUserComponent},
   {path:"adherents", component: AdherentsComponent},
@@ -78,7 +81,9 @@ const routes :Routes = [
     ViewPostComponent,
     InfoComponent,
     UsersComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    CartStatusComponent,
+    SectionDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

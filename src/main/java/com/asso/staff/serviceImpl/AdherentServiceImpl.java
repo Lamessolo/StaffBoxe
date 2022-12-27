@@ -35,7 +35,6 @@ import lombok.RequiredArgsConstructor;
 public class AdherentServiceImpl implements IAdherentService{
 
 	
-	
 	private final AdherentRepository adherentRepository;
 	private final SexeRepository sexeRepository;
 	private final CategorieRepository categorieRepository;

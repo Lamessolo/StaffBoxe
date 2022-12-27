@@ -7,7 +7,7 @@ export const environment = {
 /*
   UrlAdherent: "http://localhost:8080/api/adherent",
 
-  UrlSection: "http://localhost:8080/api/section/all",
+  UrlSection: "http://localhost:8080/api/section",
 
   UrlSexe: "http://localhost:8080/api/sexe",
 
@@ -17,11 +17,11 @@ export const environment = {
 
   UrlFile: "http://localhost:8080/api/file/upload",
 
-  UrlUser : "http://localhost:8080/api/user" */
-
+  UrlUser : "http://localhost:8080/api/user" 
+*/
   UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
 
-  UrlSection: "https://managerstaffboxe.herokuapp.com/api/section/all",
+  UrlSection: "https://managerstaffboxe.herokuapp.com/api/section",
 
   UrlSexe: "https://managerstaffboxe.herokuapp.com/api/sexe",
 

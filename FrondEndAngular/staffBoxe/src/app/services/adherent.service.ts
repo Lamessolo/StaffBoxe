@@ -29,7 +29,6 @@ export class AdherentService {
   }
   
   getAdherentList(theSectionId : number):Observable<Adherent[]>{
-
     const searchUrl = `${this.baseUrlAdherent}/section/${theSectionId}`;
     return this.httpClient.get<Adherent[]>(searchUrl);
    
