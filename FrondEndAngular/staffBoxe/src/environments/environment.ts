@@ -17,9 +17,15 @@ export const environment = {
 
   UrlFile: "http://localhost:8080/api/file/upload",
 
-  UrlUser : "http://localhost:8080/api/user" 
+  UrlUser : "http://localhost:8080/api/user" ,
+
+  UrlCountry : "http://localhost:8080/api/country" ,
+
+  UrlState : "http://localhost:8080/api/state",
+
+  UrlPurchase : "http://localhost:8080/api/checkout/purchase"
 */
-  UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
+ UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
 
   UrlSection: "https://managerstaffboxe.herokuapp.com/api/section",
 
@@ -31,8 +37,14 @@ export const environment = {
 
   UrlPost : "https://managerstaffboxe.herokuapp.com/api/post",
 
-  UrlUser : "https://managerstaffboxe.herokuapp.com/api/user"
-   
+  UrlUser : "https://managerstaffboxe.herokuapp.com/api/user",
+
+  UrlCountry : "https://managerstaffboxe.herokuapp.com/api/country" ,
+
+  UrlState : "https://managerstaffboxe.herokuapp.com/api/state",
+
+  UrlPurchase : "https://managerstaffboxe.herokuapp.com/api/checkout/purchase" 
+  
 };
 
 /*

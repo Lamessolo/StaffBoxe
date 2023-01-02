@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  
+ 
   UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
 
   UrlSection: "https://managerstaffboxe.herokuapp.com/api/section",
@@ -8,26 +8,39 @@ export const environment = {
   UrlFile: "https://managerstaffboxe.herokuapp.com/api/file/upload",
 
   UrlSexe: "https://managerstaffboxe.herokuapp.com/api/sexe",
+  
   UrlCategorie: "https://managerstaffboxe.herokuapp.com/api/categorie",
 
   UrlPost : "https://managerstaffboxe.herokuapp.com/api/post",
 
-  UrlUser : "https://managerstaffboxe.herokuapp.com/api/user"
-   
- /*
+  UrlUser : "https://managerstaffboxe.herokuapp.com/api/user",
 
- UrlAdherent: "http://localhost:8080/api/adherent",
+  UrlCountry : "https://managerstaffboxe.herokuapp.com/api/country" ,
 
-   UrlSection: "http://localhost:8080/api/section",
+  UrlState : "https://managerstaffboxe.herokuapp.com/api/state" ,
 
-   UrlSexe: "http://localhost:8080/api/sexe",
+  UrlPurchase : "https://managerstaffboxe.herokuapp.com/api/checkout/purchase" 
+  
+ 
+/*
+UrlAdherent: "http://localhost:8080/api/adherent",
 
-  UrlCategorie: "http://localhost:8080/api/categorie",
+UrlSection: "http://localhost:8080/api/section",
 
-   UrlPost : "http://localhost:8080/api/post",
-   
-   UrlFile: "http://localhost:8080/api/file/upload",
+UrlSexe: "http://localhost:8080/api/sexe",
 
-   UrlUser : "http://localhost:8080/api/user"
+UrlCategorie: "http://localhost:8080/api/categorie",
+
+UrlPost : "http://localhost:8080/api/post",
+
+UrlFile: "http://localhost:8080/api/file/upload",
+
+UrlUser : "http://localhost:8080/api/user",
+
+UrlCountry : "http://localhost:8080/api/country" ,
+
+UrlState : "http://localhost:8080/api/state" ,
+
+UrlPurchase : "http://localhost:8080/api/checkout/purchase"
 */
 };

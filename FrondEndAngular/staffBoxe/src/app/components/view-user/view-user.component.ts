@@ -16,7 +16,8 @@ header ="";
    id: 0,
    name: '',
    email: '',
-   phone: ''
+   phone: '',
+   lastname: ''
  }
  isNewUser = false;
   constructor(private readonly userService : UserService,

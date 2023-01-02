@@ -12,7 +12,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbModule,NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { SectionListComponent } from './components/section-list/section-list.component';
 
-import{  FormsModule}  from '@angular/forms';
+import{  FormsModule, ReactiveFormsModule}  from '@angular/forms';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -55,9 +55,14 @@ import { UsersComponent } from './components/users/users.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { SectionDetailsComponent } from './components/section-details/section-details.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { Luv2ShopValidatorsComponent } from './validators/luv2-shop-validators/luv2-shop-validators.component';
 
 
 const routes :Routes = [
+  {path:"checkout", component:CheckoutComponent},
+  {path:"cart-details", component:CartDetailsComponent},
   {path:"section/:id", component:SectionDetailsComponent},
   {path:"users", component:UsersComponent},
   {path:"user/:id", component:ViewUserComponent},
@@ -83,7 +88,10 @@ const routes :Routes = [
     UsersComponent,
     ViewUserComponent,
     CartStatusComponent,
-    SectionDetailsComponent
+    SectionDetailsComponent,
+    CartDetailsComponent,
+    CheckoutComponent,
+    Luv2ShopValidatorsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -92,6 +100,7 @@ const routes :Routes = [
     NoopAnimationsModule,
     NgbPaginationModule,
     NgbModule,
+    ReactiveFormsModule,
     FormsModule,
     PaginationModule.forRoot(),
     BrowserAnimationsModule,

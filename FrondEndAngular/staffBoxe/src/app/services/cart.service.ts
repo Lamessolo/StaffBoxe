@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { CartItem } from '../common/cart-Item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+ 
 
   cartItems:CartItem[]=[]
-  totalPrice : Subject<number> = new Subject<number>();
-  totalQuantity : Subject<number> = new Subject<number>();
+  totalPrice : Subject<number> = new BehaviorSubject<number>(0);
+  totalQuantity : Subject<number> = new BehaviorSubject<number>(0);
   constructor() { }
 
   addToCart(thecartItem : CartItem){
@@ -69,5 +70,27 @@ this.computeCartTotals();
     console.log('---------');
 
     
+  }
+
+  decrementQuantity(cartItem: CartItem) {
+    cartItem.quantity--;
+    if(cartItem.quantity === 0){
+      this.remove(cartItem);
+    }else{
+      this.computeCartTotals();
+    }
+  }
+  remove(cartItem : CartItem){
+ // get index of item in the array
+ const itemIndex = this.cartItems.findIndex(
+  tempCartItem=>tempCartItem.id == cartItem.id);
+  
+//if found, remove the item from the array at the given index
+  if(itemIndex > -1){
+this.cartItems.splice(itemIndex, 1);
+this.computeCartTotals();
+  }
+ 
+ 
   }
 }

@@ -46,10 +46,12 @@ export class UserService {
     const httpOptions ={
       headers : new HttpHeaders({'Content-Type': 'application/Json'})
     }
-    const addUser : UserAdd = {    
+    const addUser : UserAdd = {
       name: user.name.trim().toUpperCase(),
       email: user.email,
-      phone: user.phone,   
+      phone: user.phone,
+      lastname: user.lastname
+
     }
    return this.httpClient.post<User>(addUrl,addUser,httpOptions);
   }
