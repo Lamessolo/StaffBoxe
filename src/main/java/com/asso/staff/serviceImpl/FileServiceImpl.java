@@ -33,10 +33,7 @@ public class FileServiceImpl implements IFileService {
 		String name = file.getOriginalFilename();
 		
 		Adherent AdherentIdToFind = adherentRepository.findAdherentById(id)
-				.orElseThrow(()->new UserNotFoundException("Adherent by id " + id + "was not found"));
-		
-		
-		
+				.orElseThrow(()->new UserNotFoundException("Adherent by id " + id + "was not found"));						
 		//random name generate file
 		//String randomID = UUID.randomUUID().toString();
 	//	au nouveau random on ajoute le '.jpg' ou '.jpeg' ou ...
@@ -71,6 +68,38 @@ public class FileServiceImpl implements IFileService {
 		Files.copy(file.getInputStream(), Paths.get(filePath));
 		
 		return imageUrl;
+	}
+
+	@Override
+	public String uploadImageSansId(String path, MultipartFile file) throws IOException {
+		   // File name  abc.png
+				String name = file.getOriginalFilename();							
+				//String randomID = UUID.randomUUID().toString();
+			//	au nouveau random on ajoute le '.jpg' ou '.jpeg' ou ...
+				//String fileName1 = randomID.concat(name.substring(name.lastIndexOf(".")));
+					
+				//FullPath		
+				String filePath = path + File.separator + name;
+				
+				// dans Adherent je veux changer l'imageUrl , pour cela jai besoin d'un AdherentId
+							
+				// Create folder if not created
+				
+				File f = new File(path);
+				if(!f.exists()) {
+					f.mkdir();
+				}
+				
+				
+				String phrase = "FrondEndAngular/staffBoxe/src/";
+				 
+				// forme une chaîne du début de phrase[0] jusqu'à phrase[TAILLE_MAX - 1]
+				String imageUrl = filePath.substring(phrase.length());
+				 					
+						 		
+				Files.copy(file.getInputStream(), Paths.get(filePath));
+				
+				return imageUrl;
 	}
 	
 	

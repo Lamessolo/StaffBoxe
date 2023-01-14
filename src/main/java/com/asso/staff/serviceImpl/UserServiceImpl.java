@@ -145,9 +145,9 @@ public class UserServiceImpl implements IUserService {
 	public boolean EmailUserExist(String emailUser) {
 		String emailExist ;
 		boolean boolEmailExist;
-		
-		boolean findEmailUser = userRepository.findUserByEmail(emailUser).isPresent();						
-		if(findEmailUser == true) {
+						
+		User findEmailUser = userRepository.findUserByEmail(emailUser);						
+		if(findEmailUser != null) {
 			 emailExist = "cette email existe deja";
 			 boolEmailExist = false;
 		}

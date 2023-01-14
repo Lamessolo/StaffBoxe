@@ -14,7 +14,7 @@ export class Luv2ShopFormService {
   private baseUrlState = environment.UrlState;
   constructor(private httpClient  : HttpClient) { }
 
-  getCreditCardMonths(startMonth: number):Observable<number[]>{
+getCreditCardMonths(startMonth: number):Observable<number[]>{
  let data:number[] = [];
  // Build an array for Month dropdown list
  // - start at current month and loop until 
@@ -26,7 +26,7 @@ export class Luv2ShopFormService {
  return of (data);
   }
 
-  getCreditCardYears():Observable<number[]>{
+getCreditCardYears():Observable<number[]>{
     let data:number[] = [];
      // Build an array for "Years" dropdown list
      // - start at current year and loop for next 10 years
@@ -41,7 +41,7 @@ export class Luv2ShopFormService {
      return of(data);
   }
 
-  getAllCountries():Observable<Country[]>{
+getAllCountries():Observable<Country[]>{
     const searchUrl = `${this.baseUrlCountry}`;
     return this.httpClient.get<Country[]>(searchUrl);
   }

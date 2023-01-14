@@ -31,11 +31,11 @@ public class FileController {
 	@Value("${project.image}")
 	private String path;
 	
-	/*@PostMapping("/upload")
+	@PostMapping("/upload")
 	public ResponseEntity<FileResponse> fileUpload(@RequestParam("image") MultipartFile image){
 		String fileName;
 		try {
-			fileName = this.fileService.uploadImage(path, image);
+			fileName = this.fileService.uploadImageSansId(path, image);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			return new ResponseEntity<>(new FileResponse(null,"Image is not uploaded due to error on server!!"),
@@ -45,7 +45,7 @@ public class FileController {
 		return new ResponseEntity<>(new FileResponse(fileName,"Image is successfully uploaded!!"), HttpStatus.OK);
 		
 	}
-	*/
+	
 	@PostMapping("/upload/{id}")
 	public ResponseEntity<FileResponse> fileUpload(@PathVariable("id")long id, MultipartFile image){
 		String fileName;

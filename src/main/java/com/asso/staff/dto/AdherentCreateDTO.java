@@ -31,7 +31,6 @@ public class AdherentCreateDTO  implements Serializable{
 	private String prenom;
 	
 	private String adresse;
-	
 	private String email;
 	private String phone;
 	private Date dateNaissance;

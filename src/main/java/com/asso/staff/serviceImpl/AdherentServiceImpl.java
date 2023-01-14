@@ -130,6 +130,7 @@ public class AdherentServiceImpl implements IAdherentService{
 		adherent.setEmail(adherentCreateDto.getEmail());
 		adherent.setDateNaissance(adherentCreateDto.getDateNaissance());
 		adherent.setPhone(adherentCreateDto.getPhone());
+		adherent.setImageUrl(adherentCreateDto.getImageUrl());
 		adherent.setStatut(adherentCreateDto.getStatut());
 		adherent.setSexe(sexe);
 		adherent.setSection(section);

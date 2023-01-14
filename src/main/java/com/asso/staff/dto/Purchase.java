@@ -13,6 +13,7 @@ import lombok.Data;
 public class Purchase {
 
 	private User user;
+    private AdherentCreateDTO adherentCreate;
 	private Address shippingAddress;
 	private Address billingAddress;
 	private Order order;

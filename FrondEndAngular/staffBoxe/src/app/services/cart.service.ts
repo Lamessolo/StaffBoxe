@@ -7,7 +7,6 @@ import { CartItem } from '../common/cart-Item';
 })
 export class CartService {
  
-
   cartItems:CartItem[]=[]
   totalPrice : Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity : Subject<number> = new BehaviorSubject<number>(0);
@@ -92,5 +91,9 @@ this.computeCartTotals();
   }
  
  
+  }
+
+  persistCartItems() {
+    throw new Error('Method not implemented.');
   }
 }

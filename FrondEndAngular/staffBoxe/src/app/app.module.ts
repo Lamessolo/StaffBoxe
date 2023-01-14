@@ -58,12 +58,14 @@ import { SectionDetailsComponent } from './components/section-details/section-de
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { Luv2ShopValidatorsComponent } from './validators/luv2-shop-validators/luv2-shop-validators.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 
 const routes :Routes = [
   {path:"checkout", component:CheckoutComponent},
   {path:"cart-details", component:CartDetailsComponent},
   {path:"section/:id", component:SectionDetailsComponent},
+  {path:"orders", component:OrderHistoryComponent},
   {path:"users", component:UsersComponent},
   {path:"user/:id", component:ViewUserComponent},
   {path:"adherents", component: AdherentsComponent},
@@ -91,7 +93,8 @@ const routes :Routes = [
     SectionDetailsComponent,
     CartDetailsComponent,
     CheckoutComponent,
-    Luv2ShopValidatorsComponent
+    Luv2ShopValidatorsComponent,
+    OrderHistoryComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

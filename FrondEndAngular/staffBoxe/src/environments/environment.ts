@@ -23,8 +23,14 @@ export const environment = {
 
   UrlState : "http://localhost:8080/api/state",
 
-  UrlPurchase : "http://localhost:8080/api/checkout/purchase"
-*/
+  UrlPurchase : "http://localhost:8080/api/checkout/purchase",
+
+  UrlCheckout : "http://localhost:8080/api/checkout",
+
+  UrlOrderHistory : "http://localhost:8080/api/order",*/
+
+stripePublishableKey: "pk_test_51MMuZhLb2yYD4MPzMQTX18jhX46K4nCJj8XK3MekpJmw4WuuQO52XcqnoTqrCjbKUUSy6VnNesGhgq6oCiC8uMuO00oDBZS82K",
+
  UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
 
   UrlSection: "https://managerstaffboxe.herokuapp.com/api/section",
@@ -43,8 +49,12 @@ export const environment = {
 
   UrlState : "https://managerstaffboxe.herokuapp.com/api/state",
 
-  UrlPurchase : "https://managerstaffboxe.herokuapp.com/api/checkout/purchase" 
+  UrlPurchase : "https://managerstaffboxe.herokuapp.com/api/checkout/purchase",
+
+  UrlCheckout : "https://managerstaffboxe.herokuapp.com/api/checkout",
   
+  UrlOrderHistory : "https://managerstaffboxe.herokuapp.com/api/order"
+
 };
 
 /*

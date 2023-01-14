@@ -14,7 +14,7 @@ import com.asso.staff.entity.User;
 public interface UserRepository extends JpaRepository<User,Long> {
 
 	Optional<User> findUserById(Long id);
-	Optional<User> findUserByEmail(String emailUser);
+	User findUserByEmail(String emailUser);
 	List<User> findByNameContaining(@Param("name")String name);
 	
 	@Query("SELECT a FROM User a WHERE " 
