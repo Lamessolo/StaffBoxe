@@ -1,0 +1,10 @@
+/*  PANEL PIED DE PAGE */
+.panel-footer{
+    margin-top: 30px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    background-color: #13035d;
+    border-top: 0;
+    color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

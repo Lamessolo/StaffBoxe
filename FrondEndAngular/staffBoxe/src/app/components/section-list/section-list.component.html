@@ -1,5 +1,5 @@
-
-      <div class="row">
+<!--  
+<div class="row">
         <div class="col-sm-4 mt-1 ml-1 text-center" *ngFor="let section of sections">
           <div class="card border-warn">
               <div class="card-header py-3 border-primary">
@@ -12,28 +12,53 @@
                     <img class="text-center img-rounded"
                     src="assets/images/staffboxe.png" alt="imageSection" style="width:50%">
                   </a>
-                </div>
+                </div> -->
                
               <!--  <h1 class="card-title">{{section.tarif}} €/<small class="text-muted fw-light">année</small></h1>--> 
-                <ul class="text-center">
-                  <li>{{section.description}}</li>                   
-                </ul>
-        <div class=""> 
-          <a [routerLink]="['/section',section.id]">
-          <mat-icon color="warn">+ d'infos</mat-icon>
-        </a>  
-         <button 
-          (click)="addToCart(section)"
-          type="button" 
-          class="btn btn-lg btn-outline-primary">Souscrire</button>
-        
-        <!-- 
-          <a class="btn btn-lg btn-outline-primary"
-          routerLink="/adherent/add" 
-          >Souscrire</a>  --> 
-        </div>                    
-      </div>
-  </div>
+            <!--    <ul class="text-center">
+                <li>{{section.description}}</li>                   
+              </ul>
+      <div class=""> 
+         
+       <button 
+        (click)="addToCart(section)"
+        type="button" 
+        class="btn btn-lg btn-outline-primary">Souscrire</button>-->
+      
+      <!-- 
+        <a class="btn btn-lg btn-outline-primary"
+        routerLink="/adherent/add"
+        <a [routerLink]="['/section',section.id]">
+        <mat-icon color="warn">+ d'infos</mat-icon>
+      </a>  
+        >Souscrire</a>  --> 
+  <!--        </div>                    
+    </div>
+</div>
 </div>        
+</div>
+-->
+   
+<div class="container text-center">
+  <div class="row row-cols-2"  >
+    <div class="col"*ngFor="let section of sections">
+      <!-- Div Nom de la Section -->
+      <div class="card-header">
+        <h4 class="">{{section.name}}</h4>
+      </div>
+      <!-- Div de la photo de la Section-->
+      <div class="">
+        <a href="">
+          <img class="text-center img-rounded"
+          src="assets/images/staffboxe.png" alt="imageSection" style="width:50%">
+        </a>
+      </div>
+      <!-- Div pour montrer les horaires et Jour de pratique -->
+      <div class="text-center">
+        <p>{{section.description}}</p>                   
+      </div>
+    </div>
+    
+  </div>
 </div>
 

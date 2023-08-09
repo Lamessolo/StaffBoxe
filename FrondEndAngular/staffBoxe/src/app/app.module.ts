@@ -59,6 +59,8 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { Luv2ShopValidatorsComponent } from './validators/luv2-shop-validators/luv2-shop-validators.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 
 const routes :Routes = [
@@ -94,7 +96,8 @@ const routes :Routes = [
     CartDetailsComponent,
     CheckoutComponent,
     Luv2ShopValidatorsComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    FooterComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
