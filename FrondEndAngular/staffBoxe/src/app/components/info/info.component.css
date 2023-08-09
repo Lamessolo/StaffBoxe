@@ -1,19 +1,19 @@
-.jumbotron {
-    background-color: #ffffcc;
-    height: 150px;
-  }
-  .jumbotron h1 {
-    text-align: center;
-    color: #006699;
-  }
-  .jumbotron p {
-    text-align: center;
-    color: black;
+
+.change{
+  background: url("src/assets/images/staffboxe.png")no-repeat;
+
 }
-.fas {
- font-size: 24px;
+.info{
+  height: 150px;
+  padding-bottom: 15px;
 }
-.titre{
-    font-family: Geneva, Tahoma, sans-serif;
-    font-size: xx-large;
+#map-tile span{
+text-align: center;
+opacity: .8;
+color: #10054c;
+font-family: Oxygen,Tahoma;
+}
+
+#menu-tile:hover {
+box-shadow: 0 1px 5px 1px #cccccc;
 }

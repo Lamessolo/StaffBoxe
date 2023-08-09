@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-/*
+
   UrlAdherent: "http://localhost:8080/api/adherent",
 
   UrlSection: "http://localhost:8080/api/section",
@@ -27,10 +27,11 @@ export const environment = {
 
   UrlCheckout : "http://localhost:8080/api/checkout",
 
-  UrlOrderHistory : "http://localhost:8080/api/order",*/
+  UrlOrderHistory : "http://localhost:8080/api/order",
+  
 
 stripePublishableKey: "pk_test_51MMuZhLb2yYD4MPzMQTX18jhX46K4nCJj8XK3MekpJmw4WuuQO52XcqnoTqrCjbKUUSy6VnNesGhgq6oCiC8uMuO00oDBZS82K",
-
+/*
  UrlAdherent: "https://managerstaffboxe.herokuapp.com/api/adherent",
 
   UrlSection: "https://managerstaffboxe.herokuapp.com/api/section",
@@ -54,7 +55,7 @@ stripePublishableKey: "pk_test_51MMuZhLb2yYD4MPzMQTX18jhX46K4nCJj8XK3MekpJmw4Wuu
   UrlCheckout : "https://managerstaffboxe.herokuapp.com/api/checkout",
   
   UrlOrderHistory : "https://managerstaffboxe.herokuapp.com/api/order"
-
+*/
 };
 
 /*

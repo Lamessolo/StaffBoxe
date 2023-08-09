@@ -1,4 +1,4 @@
-<div class="container ">
+
       <div class="row">
         <div class="col-sm-4 mt-1 ml-1 text-center" *ngFor="let section of sections">
           <div class="card border-warn">
@@ -22,12 +22,18 @@
           <a [routerLink]="['/section',section.id]">
           <mat-icon color="warn">+ d'infos</mat-icon>
         </a>  
-          <button (click)="addToCart(section)"
+         <button 
+          (click)="addToCart(section)"
           type="button" 
           class="btn btn-lg btn-outline-primary">Souscrire</button>
+        
+        <!-- 
+          <a class="btn btn-lg btn-outline-primary"
+          routerLink="/adherent/add" 
+          >Souscrire</a>  --> 
         </div>                    
       </div>
   </div>
 </div>        
 </div>
-</div>
+

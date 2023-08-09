@@ -1,6 +1,9 @@
 .navbar{
     height: 100px;
-    background-color: #ffff;   
+    background-color: #ffff;  
+}
+.nav-item:hover{
+    box-shadow: 0 1px 5px 1px #340274;
 }
 .navbar a {       
     color:#000;

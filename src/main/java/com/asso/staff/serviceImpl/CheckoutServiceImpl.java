@@ -27,6 +27,7 @@ import com.asso.staff.utils.PagePurchaseResponse;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
+import com.stripe.model.Plan;
 
 
 @Service
@@ -34,12 +35,10 @@ public class CheckoutServiceImpl implements ICheckoutService {
 
 	private  UserRepository userRepository;
 	
-    
 	public CheckoutServiceImpl(UserRepository userRepository,
-			@Value("${stripe.key.secret}")String secretKey) {
+		@Value("${stripe.key.secret}")String secretKey) {
 		this.userRepository = userRepository;	
-		Stripe.apiKey = secretKey;
-		
+		Stripe.apiKey = secretKey;		
 	}
 	
 	@Override
@@ -103,5 +102,25 @@ public class CheckoutServiceImpl implements ICheckoutService {
 		
 		return PaymentIntent.create(params);
 	}
+	
+	
+	@Override
+	public Plan createPlan(PaymentInfoDTO paymentInfoDto) throws StripeException {
+		List<String> paymentMethodTypes = new ArrayList<>();
+		paymentMethodTypes.add("card");
+		
+		Map<String, Object> params = new HashMap<>();
+		params.put("amount", paymentInfoDto.getAmount()); // $100 in cents
+		params.put("currency",  paymentInfoDto.getCurrency());
+		params.put("interval", "month");
+		params.put("interval_count", 1);
+		params.put("product", paymentInfoDto.getSectionId());
+						
+		return  Plan.create(params);
+	}
+	
+	
+	
+	
 
 }

@@ -30,7 +30,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/adherent")
-@CrossOrigin
+@CrossOrigin("*")
 public class AdherentController {
 
 	private final AdherentServiceImpl adherentService;

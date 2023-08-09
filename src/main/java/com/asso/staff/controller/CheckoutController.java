@@ -19,6 +19,7 @@ import com.asso.staff.service.ICheckoutService;
 import com.asso.staff.utils.PagePurchaseResponse;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
+import com.stripe.model.Plan;
 
 import lombok.RequiredArgsConstructor;
 
@@ -33,6 +34,7 @@ public class CheckoutController {
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
+	// Achat
 	@PostMapping("/purchase")
 	public PagePurchaseResponse placeOrder(@RequestBody Purchase purchase) {
 		
@@ -50,8 +52,17 @@ public class CheckoutController {
 		PaymentIntent paymentIntent = checkoutservice.createPaymentIntent(paymentInfoDto);
 		String paymentStr = paymentIntent.toJson();
 		
-		return new ResponseEntity<>(paymentStr, HttpStatus.OK);
+		return new ResponseEntity<>(paymentStr, HttpStatus.OK);	
+	}
+	
+	@PostMapping("/plan")
+	public ResponseEntity<String> createPlanPayment(@RequestBody PaymentInfoDTO paymentInfoDto)throws StripeException
+	{
+		logger.info("paymentInfoDto.amount" + paymentInfoDto.getAmount());
+		Plan planPayment = checkoutservice.createPlan(paymentInfoDto);
+		String paymentStr = planPayment.toJson();
 		
+		return new ResponseEntity<>(paymentStr, HttpStatus.OK);	
 	}
 	
 }
